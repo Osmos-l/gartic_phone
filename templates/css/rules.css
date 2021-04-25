@@ -1,0 +1,15 @@
+.rules {
+    position: absolute;
+    top: 2.5%;
+    right: 2.5%;
+    padding: 0.75em 1em;
+    background-color: #E63946;
+    border-radius: 50%;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.rules span {
+    color: white;
+    font-weight: bold;
+}

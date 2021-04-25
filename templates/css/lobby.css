@@ -46,3 +46,12 @@
 .lobby-action {
     width: 100%;
 }
+
+.lobby-id {
+    margin-top: 0.75em;
+    text-transform: uppercase;
+    color: white;
+    font-weight: lighter;
+    font-size: x-small;
+    text-align: center;
+}

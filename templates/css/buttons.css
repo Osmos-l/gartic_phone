@@ -1,0 +1,16 @@
+button {
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #E63946;
+    border: none;
+    color: white;
+    padding: 0.75em;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.btn-border-red {
+    background-color: #E63946;
+}

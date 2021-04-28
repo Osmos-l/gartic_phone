@@ -1,0 +1,8 @@
+com/miage/garticphone/model/enums/Pictures.java
+ com.miage.garticphone.model.enums.Pictures
+com/miage/garticphone/GarticphoneApplication.java
+ com.miage.garticphone.GarticphoneApplication
+com/miage/garticphone/model/api/UserApiDTO.java
+ com.miage.garticphone.model.api.UserApiDTO
+com/miage/garticphone/model/api/GameApiDTO.java
+ com.miage.garticphone.model.api.GameApiDTO

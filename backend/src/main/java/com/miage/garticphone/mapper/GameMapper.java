@@ -17,6 +17,7 @@ public final class GameMapper {
         }
 
         result.setId(toTransform.getId());
+        result.setCreator(UserMapper.toBo(toTransform.getCreator()));
 
         for (UserApiDTO user : toTransform.getUsers()) {
             result.addUser(UserMapper.toBo(user));
@@ -33,6 +34,7 @@ public final class GameMapper {
         }
 
         result.setId(toTransform.getId());
+        result.setCreator(UserMapper.toApi(toTransform.getCreator()));
 
         for (UserBO user : toTransform.getUsers()) {
             result.addUser(UserMapper.toApi(user));

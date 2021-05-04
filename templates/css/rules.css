@@ -7,6 +7,11 @@
     border-radius: 50%;
     overflow: hidden;
     text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.rules:hover {
+    transform: scale(1.1);
 }
 
 .rules span {

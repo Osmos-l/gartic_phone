@@ -1,13 +1,15 @@
-<div class='menu-container'>
-    <div class='menu'>
-        <h1>gartic phone</h1>
-        <div class='menu-content'>
-            <input type='text' placeholder='NICKNAME' id='nickname' />
-            <div class='menu-content-join-party'>
-                <button>join lobby</button>
-                <input type='text' placeholder='ID' id='gameid' />
-            </div>
-            <button class='menu-content-action btn-border-red'>create lobby</button>
+<div class="menu-container">
+    <div class="menu">
+        <h1>Gartic phone</h1>
+        <div class="menu-content">
+            <form [formGroup]="form">
+                <button><a href="new">Créer une partie</a></button>
+                <input type="text" placeholder="NICKNAME" name="nickname" id="nickname" />
+                <div class="menu-content-join-party">
+                    <input type="text" placeholder="ID" name="gameId" id="gameid" />
+                </div>
+                <button (click)="joinGame()">Rejoindre une partie</button>
+            </form>
         </div>
     </div>
 </div>

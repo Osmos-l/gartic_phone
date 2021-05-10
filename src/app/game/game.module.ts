@@ -1,17 +1,30 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
-import { GameRoutingModule } from './game-routing.module';
 import { LobbyComponent } from './lobby/lobby.component';
+import { DrawComponent } from './draw/draw.component';
+import { GuessComponent } from './guess/guess.component';
+import { StartComponent } from './start/start.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from '../app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { NewGameComponent } from './new-game/new-game.component';
 
 
 @NgModule({
   declarations: [
-    LobbyComponent
+    LobbyComponent,
+    DrawComponent,
+    GuessComponent,
+    StartComponent,
+    NewGameComponent,
   ],
   imports: [
-    CommonModule,
-    GameRoutingModule
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class GameModule { }

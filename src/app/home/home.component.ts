@@ -28,65 +28,44 @@ export class HomeComponent {
     return this.formBuilder.group({
       username: ['', Validators.required],
       gameId: ['', Validators.required]
-    })
+    });
   }
 
   joinGame(): void {
     const { username, gameId } = this.form.value;
+    
     if (!username || !gameId) {
-      console.log("Bad username or gameID");
-      console.log(username);
-      console.log(gameId);
-      return; // TODO: Display error on view
+      alert("Un nom d'utilisateur et l'identifiant d'une partie est requis pour la rejoindre.")
+      return;
     }
 
     const player: Player = {
-      "id": "0", // Will be define by backend,
+      "id": null,
       "picture": Pictures.MALE,
       username
     }
 
     this.gameService.join(gameId, player)
-    .subscribe(
-      game => {
-        // Should navigate into "lobby" + game.id
-        this.router.navigate(["lobby/" +game.id]);
-      },
-      err => {
-        // Should display error on view
-
-        // Navigate to the view in all case ONLY FOR DEV
-        this.router.navigate(["lobby/stub"]);
-      }
-    );
+                    .subscribe(game => { this.router.navigate(["lobby/" + game.id]); },
+                              err => { alert("Impossible de rejoindre la partie."); });
   }
 
   createGame(): void {
     const username = this.form.value.username;
+
     if (!username) {
-      console.log("bad usernam");
-      console.log(username);
-      return; // TODO: Display error on view
+      alert("Un nom est requis pour créer une partie.")
+      return; 
     }
 
     const creator: Player = {
-      "id": "0", // Will be define by backend
-      "picture": Pictures.MALE, // STUB
+      "id": null,
+      "picture": Pictures.MALE,
       username
     }
 
     this.gameService.create(creator)
-    .subscribe(
-      game => {
-        // Should navigate into "lobby" + game.id
-        this.router.navigate(["lobby/" +game.id]);
-      },
-      err => {
-        // Should display error on view
-
-        // Navigate to the view in all case ONLY FOR DEV
-        this.router.navigate(["lobby/stub"]);
-      }
-    );
+                    .subscribe(game => { this.router.navigate(["lobby/" + game.id]); },
+                              err => { alert("Impossible de créer la partie."); });
   }
 }

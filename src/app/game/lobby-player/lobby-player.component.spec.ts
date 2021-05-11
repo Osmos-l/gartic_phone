@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StartComponent } from './start.component';
+import { LobbyPlayerComponent } from './lobby-player.component';
 
-describe('StartComponent', () => {
-  let component: StartComponent;
-  let fixture: ComponentFixture<StartComponent>;
+describe('LobbyPlayerComponent', () => {
+  let component: LobbyPlayerComponent;
+  let fixture: ComponentFixture<LobbyPlayerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StartComponent ]
+      declarations: [ LobbyPlayerComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StartComponent);
+    fixture = TestBed.createComponent(LobbyPlayerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

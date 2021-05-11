@@ -1,0 +1,16 @@
+.lobby-player {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.lobby-player span {
+    color: white;
+    font-weight: bolder;
+    font-size: small;
+}
+
+.lobby-player img {
+    width: 75px;
+    height: 75px;
+}

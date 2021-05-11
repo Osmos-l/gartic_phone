@@ -3,12 +3,12 @@
         <h1>Gartic phone</h1>
         <div class="menu-content">
             <form [formGroup]="form">
-                <button><a href="new">Créer une partie</a></button>
-                <input type="text" placeholder="NICKNAME" name="nickname" id="nickname" />
+                <input type="text" placeholder="NICKNAME" name="nickname" formControlName="username" id="nickname" />
                 <div class="menu-content-join-party">
-                    <input type="text" placeholder="ID" name="gameId" id="gameid" />
+                    <input type="text" placeholder="ID" name="gameId" id="gameid" formControlName="gameId" />
+                    <button (click)="joinGame()">Rejoindre une partie</button>
                 </div>
-                <button (click)="joinGame()">Rejoindre une partie</button>
+                <button class="menu-content-action btn-border-red" (click)="createGame()">Créer une partie</button>
             </form>
         </div>
     </div>

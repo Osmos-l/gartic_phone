@@ -2,7 +2,7 @@ import { Player } from "./player";
 
 export interface Game {
 
-    id: String;
+    id: string;
 
     creator: Player;
 

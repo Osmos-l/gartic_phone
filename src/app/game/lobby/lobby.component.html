@@ -1,14 +1,13 @@
 <div class='lobby-container'>
     <div class='lobby'>
-        <h1>Waiting players ...</h1>
+        <h1>En attente de joueurs...</h1>
         <div class='lobby-content' >
             <div class='lobby-players-row'>
-                <app-lobby-player *ngFor="let player of (game.players)"
-                    [player]="player"></app-lobby-player>
+                <app-lobby-player *ngFor="let player of (game.players)" [player]="player"></app-lobby-player>
             </div>
         </div>
         <!--TODO: Only if local user is game creator -->
-        <button class='lobby-action'>lancer la partie</button>
-        <h2 class='lobby-id'>copy party link - sPaS79bNr1</h2>
+        <button class='lobby-action'>Lancer la partie</button>
+        <h2 class='lobby-id'>Lien de la partie : {{ game.id }}</h2>
     </div>
 </div>

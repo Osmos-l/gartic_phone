@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Pictures } from 'src/models/pictures';
 import { Player } from 'src/models/player';
 import { GameService } from '../../services/game.service';
@@ -15,8 +14,7 @@ export class HomeComponent {
   form: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-              private gameService: GameService,
-              private router: Router) {
+              private gameService: GameService) {
     this.form = this.buildForm();
   }
 

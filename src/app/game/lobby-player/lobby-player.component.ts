@@ -11,8 +11,8 @@ export class LobbyPlayerComponent implements OnInit {
 
   @Input()
   player: Player = {
-    "id": "0",
-    "username": "OSMOS",
+    "id": null,
+    "username": null,
     "picture": Pictures.MALE
   }
 
@@ -20,5 +20,4 @@ export class LobbyPlayerComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

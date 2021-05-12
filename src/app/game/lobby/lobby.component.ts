@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Game } from 'src/models/game';
-import { Pictures } from 'src/models/pictures';
 
 @Component({
   selector: 'app-lobby',
@@ -15,8 +14,5 @@ export class LobbyComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('lobby component:');
-    console.log(this.game);
   }
-
 }

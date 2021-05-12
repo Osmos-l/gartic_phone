@@ -45,9 +45,7 @@ export class HomeComponent {
       username
     }
 
-    this.gameService.join(gameId, player)
-                    .subscribe(game => { this.router.navigate(["lobby/" + game.id]); },
-                              err => { alert("Impossible de rejoindre la partie."); });
+    this.gameService.join(gameId, player);
   }
 
   createGame(): void {

@@ -15,9 +15,7 @@ export class DefaultComponent implements OnInit {
     let game = JSON.parse(localStorage.getItem('game'));
     if (game) {
       this.game = game;
-      console.log('game is ok');
     } else {
-      console.log('redirect')
       this.router.navigate(['']);
     }
   }

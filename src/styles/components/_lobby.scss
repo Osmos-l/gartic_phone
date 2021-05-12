@@ -26,21 +26,7 @@
     margin: 0.75em 0;
     display: flex;
     justify-content: space-around;
-}
-
-.lobby-player {
-    text-align: center;
-}
-
-.lobby-player span {
-    color: white;
-    font-weight: bolder;
-    font-size: small;
-}
-
-.lobby-player img {
-    width: 75px;
-    height: 75px;
+    flex-wrap: wrap;
 }
 
 .lobby-action {

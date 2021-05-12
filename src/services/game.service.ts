@@ -33,8 +33,18 @@ export class GameService {
     );
   }
 
-  join(id: String, player: Player): Observable<Game> {
-    this.socket.on('connection', (socket) => { console.log('Socket ' + socket.id); });
-    return this.httpClient.post<Game>(`${this._API}/games/${id}`, player);
+  join(id: Number, player: Player) {
+    this.httpClient.post<Game>(`${this._API}/games/${id}`, player)
+    .subscribe(
+      game => {
+        localStorage.setItem('game', JSON.stringify(game));
+        // TODO: navigate to default game component
+        this.router.navigate(["lobby/" + game.id]);
+      },
+      err => {
+        console.log('error => ' + err);
+        // TODO: Display error
+      }
+    );;
   }
 }

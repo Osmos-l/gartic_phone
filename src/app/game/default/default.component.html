@@ -1,2 +1,2 @@
-<div *ngIf="game.id != ''; else notfound"><app-lobby></app-lobby></div>
+<div *ngIf="game.id != ''; else notfound"><app-lobby [game]="game"></app-lobby></div>
 <ng-template #notfound>notfound</ng-template>

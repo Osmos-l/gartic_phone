@@ -8,13 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { GameRoutingModule } from './game-routing.module';
 import { DefaultComponent } from './default/default.component';
+import { LobbyPlayerComponent } from './lobby-player/lobby-player.component';
 
 @NgModule({
   declarations: [
     LobbyComponent,
     DrawComponent,
     GuessComponent,
-    DefaultComponent
+    DefaultComponent,
+    LobbyPlayerComponent
   ],
   imports: [
     GameRoutingModule,

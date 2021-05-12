@@ -19,9 +19,9 @@ export class GameService {
   create(creator: Player) {
     this.httpClient.post<Game>(`${environment.serverUrl}/games`, creator)
       .subscribe(game => {
-        localStorage.setItem('player', JSON.stringify(creator));
+        localStorage.setItem('player', JSON.stringify(game.creator));
         localStorage.setItem('game', JSON.stringify(game));
-        // TODO: navigate to default game component
+        
         this.router.navigate(["lobby/" + game.id]);
       }, err => {
         alert('Impossible de créer la partie.');
@@ -34,6 +34,7 @@ export class GameService {
       .subscribe(game => {
         this.socketService.sendJoin(id, player);
         this.socketService.getJoinResp().subscribe(gameData => {
+          // TODO: Find a way that can return the player with player.id generated
           localStorage.setItem('player', JSON.stringify(player));
           localStorage.setItem('game', JSON.stringify(gameData));
           // TODO: navigate to default game component

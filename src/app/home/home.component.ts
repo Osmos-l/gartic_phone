@@ -64,8 +64,6 @@ export class HomeComponent {
       username
     }
 
-    this.gameService.create(creator)
-                    .subscribe(game => { this.router.navigate(["lobby/" + game.id]); },
-                              err => { alert("Impossible de créer la partie."); });
+    this.gameService.create(creator);
   }
 }

@@ -1,1 +1,2 @@
-<p>default works!</p>
+<div *ngIf="game.id != ''; else notfound"><app-lobby></app-lobby></div>
+<ng-template #notfound>notfound</ng-template>

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Socket } from 'ngx-socket-io';
 import { Observable } from 'rxjs';
 import { Game } from 'src/models/game';
 import { Player } from 'src/models/player';
@@ -12,8 +13,10 @@ export class GameService {
 
   private _API: String = "http://localhost:8080";
 
-  constructor(private httpClient: HttpClient,
-              private router: Router) {}
+  constructor(
+    private httpClient: HttpClient,
+    private socket: Socket,
+    private router: Router) {}
 
   create(creator: Player) {
     this.httpClient.post<Game>(`${this._API}/games`, creator)
@@ -30,7 +33,8 @@ export class GameService {
     );
   }
 
-  join(id: Number, player: Player): Observable<Game> {
+  join(id: String, player: Player): Observable<Game> {
+    this.socket.on('connection', (socket) => { console.log('Socket ' + socket.id); });
     return this.httpClient.post<Game>(`${this._API}/games/${id}`, player);
   }
 }

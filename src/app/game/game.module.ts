@@ -9,7 +9,6 @@ import { CommonModule } from '@angular/common';
 import { GameRoutingModule } from './game-routing.module';
 import { DefaultComponent } from './default/default.component';
 
-
 @NgModule({
   declarations: [
     LobbyComponent,
@@ -23,6 +22,7 @@ import { DefaultComponent } from './default/default.component';
     FormsModule,
     ReactiveFormsModule,
     CommonModule
-  ]
+  ],
+  providers: []
 })
 export class GameModule { }

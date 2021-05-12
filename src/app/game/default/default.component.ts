@@ -19,12 +19,10 @@ export class DefaultComponent implements OnInit {
     let game = JSON.parse(localStorage.getItem('game'));
     let localPlayer = JSON.parse(localStorage.getItem('player'));
 
+    // On router.navigate or refreshed website
     if (game && localPlayer) {
       this.game = game;
       this.localPlayer = localPlayer;
-
-      console.log(localPlayer);
-      console.log(game.creator);
     } else {
       this.router.navigate(['']);
     }
@@ -34,6 +32,7 @@ export class DefaultComponent implements OnInit {
     .subscribe(
       game => {
         this.game = game;
+        localStorage.setItem('game', JSON.stringify(game));
       }
     )
   }

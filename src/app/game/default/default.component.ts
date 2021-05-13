@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Game } from 'src/models/game';
+import { Game, GameStatus } from 'src/models/game';
 import { Player } from 'src/models/player';
+import { GameService } from 'src/services/game.service';
 import { SocketService } from 'src/services/socket.service';
 
 @Component({
@@ -13,11 +14,20 @@ export class DefaultComponent implements OnInit {
 
   game: Game;
   localPlayer: Player;
+  gameStatus = GameStatus;
 
   constructor(private router: Router,
-              private socketService: SocketService) { 
-    let game = JSON.parse(localStorage.getItem('game'));
-    let localPlayer = JSON.parse(localStorage.getItem('player'));
+              private socketService: SocketService,
+              private gameService: GameService) {}
+
+  ngOnInit(): void {
+    this.initContents();
+    this.connectToSocket();
+  }
+
+  initContents(): void {
+    let game = this.gameService.getGame();
+    let localPlayer = this.gameService.getLocalPlayer();
 
     // On router.navigate or refreshed website
     if (game && localPlayer) {
@@ -26,18 +36,15 @@ export class DefaultComponent implements OnInit {
     } else {
       this.router.navigate(['']);
     }
+  }
 
-    // Connect to future socket messages
+  connectToSocket(): void {
     this.socketService.getJoinResp()
     .subscribe(
       game => {
         this.game = game;
-        localStorage.setItem('game', JSON.stringify(game));
+        this.gameService.setGame(game);
       }
     )
   }
-
-  ngOnInit(): void {
-  }
-
 }

@@ -16,11 +16,27 @@ export class GameService {
     private socketService: SocketService,
     private router: Router) {}
 
+  getGame(): Game | null {
+    return JSON.parse(localStorage.getItem('game'));
+  }
+
+  getLocalPlayer(): Player | null {
+    return JSON.parse(localStorage.getItem('player'));
+  }
+
+  setGame(game: Game): void {
+    localStorage.setItem('game', JSON.stringify(game));
+  }
+
+  setLocalPlayer(player: Player) {
+    localStorage.setItem('player', JSON.stringify(player));
+  }
+
   create(creator: Player) {
     this.httpClient.post<Game>(`${environment.serverUrl}/games`, creator)
       .subscribe(game => {
-        localStorage.setItem('player', JSON.stringify(game.creator));
-        localStorage.setItem('game', JSON.stringify(game));
+        this.setGame(game);
+        this.setLocalPlayer(game.creator);
         
         this.router.navigate(["lobby/" + game.id]);
       }, err => {
@@ -35,8 +51,9 @@ export class GameService {
         this.socketService.sendJoin(id, player);
         this.socketService.getJoinResp().subscribe(gameData => {
           // TODO: Find a way that can return the player with player.id generated
-          localStorage.setItem('player', JSON.stringify(player));
-          localStorage.setItem('game', JSON.stringify(gameData));
+          this.setLocalPlayer(player);
+          this.setGame(gameData);
+
           // TODO: navigate to default game component
           this.router.navigate(["lobby/" + game.id]);
         });

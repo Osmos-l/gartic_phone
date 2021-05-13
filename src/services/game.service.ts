@@ -38,7 +38,7 @@ export class GameService {
         this.setGame(game);
         this.setLocalPlayer(game.creator);
         
-        this.router.navigate(["lobby/" + game.id]);
+        this.router.navigate(["lobby/"]);
       }, err => {
         alert('Impossible de créer la partie.');
       }
@@ -48,15 +48,14 @@ export class GameService {
   join(id: string, player: Player) {
     this.httpClient.post<Game>(`${environment.serverUrl}/games/${id}`, player)
       .subscribe(game => {
+        // Alert socket we join the game
         this.socketService.sendJoin(id, player);
-        this.socketService.getJoinResp().subscribe(gameData => {
-          // TODO: Find a way that can return the player with player.id generated
-          this.setLocalPlayer(player);
-          this.setGame(gameData);
 
-          // TODO: navigate to default game component
-          this.router.navigate(["lobby/" + game.id]);
-        });
+        // TODO: Find a way that can return the player with player.id generated
+        this.setLocalPlayer(player);
+        this.setGame(game);
+
+        this.router.navigate(["lobby/"]);
       }, err => { 
         alert('Impossible de rejoindre la partie');
       }

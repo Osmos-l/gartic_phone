@@ -28,11 +28,11 @@ export class GameService {
     localStorage.setItem('game', JSON.stringify(game));
   }
 
-  setLocalPlayer(player: Player) {
+  setLocalPlayer(player: Player): void {
     localStorage.setItem('player', JSON.stringify(player));
   }
 
-  create(creator: Player) {
+  create(creator: Player): void {
     this.httpClient.post<Game>(`${environment.serverUrl}/games`, creator)
       .subscribe(game => {
         this.setGame(game);
@@ -45,7 +45,7 @@ export class GameService {
     );
   }
 
-  join(id: string, player: Player) {
+  join(id: string, player: Player): void {
     this.httpClient.post<Game>(`${environment.serverUrl}/games/${id}`, player)
       .subscribe(game => {
         // Alert socket we join the game

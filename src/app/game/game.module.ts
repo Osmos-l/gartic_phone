@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
 import { GameRoutingModule } from './game-routing.module';
 import { DefaultComponent } from './default/default.component';
 import { LobbyPlayerComponent } from './lobby-player/lobby-player.component';
+import { PartyComponent } from './party/party.component';
+import { PartyPlayerComponent } from './party-player/party-player.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { LobbyPlayerComponent } from './lobby-player/lobby-player.component';
     DrawComponent,
     GuessComponent,
     DefaultComponent,
-    LobbyPlayerComponent
+    LobbyPlayerComponent,
+    PartyComponent,
+    PartyPlayerComponent
   ],
   imports: [
     GameRoutingModule,

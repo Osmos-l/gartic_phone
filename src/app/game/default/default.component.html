@@ -1,6 +1,6 @@
 <div *ngIf="game.status == gameStatus.WAITING_PLAYERS;">
-    <!-- <app-lobby [game]="game" 
-               [localPlayer]="localPlayer"></app-lobby> -->
+    <app-lobby [game]="game" 
+               [localPlayer]="localPlayer"></app-lobby>
     <app-party [game]="game"></app-party>
 </div>
 <div *ngIf="game.status == gameStatus.WRITING_SENTENCES 

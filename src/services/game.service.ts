@@ -35,9 +35,9 @@ export class GameService {
   create(creator: Player): void {
     this.httpClient.post<Game>(`${environment.serverUrl}/games`, creator)
       .subscribe(game => {
+        this.socketService.sendCreate(game.id);
         this.setGame(game);
         this.setLocalPlayer(game.creator);
-        
         this.router.navigate(["lobby/"]);
       }, err => {
         alert('Impossible de créer la partie.');
@@ -49,7 +49,7 @@ export class GameService {
     this.httpClient.post<Game>(`${environment.serverUrl}/games/${id}`, player)
       .subscribe(game => {
         // Alert socket we join the game
-        this.socketService.sendJoin(id, player);
+        this.socketService.sendJoin(id);
 
         // TODO: Find a way that can return the player with player.id generated
         this.setLocalPlayer(player);
@@ -59,6 +59,6 @@ export class GameService {
       }, err => { 
         alert('Impossible de rejoindre la partie');
       }
-    );;
+    );
   }
 }

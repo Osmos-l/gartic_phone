@@ -40,8 +40,7 @@ export class DefaultComponent implements OnInit {
 
   connectToSocket(): void {
     this.socketService.getJoinResp()
-    .subscribe(
-      game => {
+        .subscribe(game => {
         this.game = game;
         this.gameService.setGame(game);
       }

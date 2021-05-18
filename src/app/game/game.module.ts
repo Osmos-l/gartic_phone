@@ -11,6 +11,7 @@ import { DefaultComponent } from './default/default.component';
 import { LobbyPlayerComponent } from './lobby-player/lobby-player.component';
 import { PartyComponent } from './party/party.component';
 import { PartyPlayerComponent } from './party-player/party-player.component';
+import { WriteComponent } from './write/write.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PartyPlayerComponent } from './party-player/party-player.component';
     DefaultComponent,
     LobbyPlayerComponent,
     PartyComponent,
-    PartyPlayerComponent
+    PartyPlayerComponent,
+    WriteComponent
   ],
   imports: [
     GameRoutingModule,

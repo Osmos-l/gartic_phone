@@ -61,4 +61,27 @@ export class GameService {
       }
     );
   }
+
+  start(game: Game, requester: Player): void {
+    const id = game.id;
+
+    if (requester.id !== game.creator.id) {
+      return;
+    }
+
+    // Should edit game.status to WRITING_SENTENCES
+    this.httpClient.post<Game>(`${environment.serverUrl}/games/${id}/start`, requester)
+      .subscribe(game => {
+        this.socketService.sendStart(id);
+        this.setGame(game);
+      }, err => { 
+        alert('Impossible de lancer la partie');
+      }
+    );
+  }
+
+  
+  sendSentence(/* sentence: Sentence, gameId: string, player: Player */): void {
+    alert('STUB')
+  }
 }

@@ -11,17 +11,16 @@
         <div class='party-game-container'>
             <div *ngIf="game.status == gameStatus.WRITING_SENTENCES;">
                 <!-- Writing component with text input -->
+                <app-write></app-write>
             </div>
             <div *ngIf="game.status == gameStatus.DRAWING;">
                 <!-- Draw component with canvas-->
+                <p>TODO: drawing</p>
             </div>
             <div *ngIf="game.status == gameStatus.GUESSING;">
                 <!-- Guess component with canvas & text input -->
+                <p>TODO: guessing</p>
             </div>
-            <!-- <span>Mr BARRIOS dit qu'on est fort</span>
-            <div class='canvas'>
-                <canvas></canvas>
-            </div> -->
         </div>
     </div>
 </div>

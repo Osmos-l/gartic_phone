@@ -18,6 +18,10 @@ export class SocketService {
     this.socket.emit('join', gameId);
   }
 
+  sendStart(gameId: string): void {
+    this.socket.emit('start', gameId);
+  }
+
   getJoinResp(): Observable<Game> {
     return this.socket.fromEvent<Game>('game');
   }

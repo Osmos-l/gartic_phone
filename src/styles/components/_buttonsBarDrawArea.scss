@@ -1,0 +1,55 @@
+input {
+    text-transform: uppercase;
+    font-weight: bold;
+   
+    margin: 10px;
+    border: solid;
+    border-color: #E63946;
+    color: white;
+    padding: 0.75em;
+    width: 75px;
+    
+}
+
+input:hover {
+    cursor: pointer;
+    border-color: #be676e;
+}
+
+.btn-border-red {
+    background-color: #E63946;
+}
+
+#btn_noir {
+    background-color: rgb(0, 0, 0);
+}
+#btn_blanc{
+    background-color: #ffff;
+}
+
+#btn_rouge{
+    background-color: rgb(206, 14, 14);
+}
+
+#btn_bleu{
+    background-color: rgb(15, 144, 230);
+}
+
+#btn_vert{
+    background-color: rgb(30, 202, 68);
+}
+
+#btn_reset{
+    background-color: rgb(255, 255, 255);
+}
+#colorPicker{
+    
+}
+
+.buttonBar {
+    margin :auto;
+    width: 50em;
+    /*display: inline-block;*/
+}
+
+

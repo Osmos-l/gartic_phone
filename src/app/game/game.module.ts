@@ -9,6 +9,9 @@ import { CommonModule } from '@angular/common';
 import { GameRoutingModule } from './game-routing.module';
 import { DefaultComponent } from './default/default.component';
 import { LobbyPlayerComponent } from './lobby-player/lobby-player.component';
+import { CanvasComponent } from './canvas/canvas.component';
+import { CanvasDrawAreaComponent } from './canvas-draw-area/canvas-draw-area.component';
+import { CanvasButtonComponent } from './canvas-button/canvas-button.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { LobbyPlayerComponent } from './lobby-player/lobby-player.component';
     DrawComponent,
     GuessComponent,
     DefaultComponent,
-    LobbyPlayerComponent
+    LobbyPlayerComponent,
+    CanvasComponent,
+    CanvasDrawAreaComponent,
+    CanvasButtonComponent
   ],
   imports: [
     GameRoutingModule,

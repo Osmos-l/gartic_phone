@@ -1,2 +1,12 @@
-<div *ngIf="game.id != ''; else notfound"><app-lobby [game]="game"></app-lobby></div>
-<ng-template #notfound>notfound</ng-template>
+<div *ngIf="game.status == gameStatus.WAITING_PLAYERS;">
+    <app-lobby [game]="game" 
+               [localPlayer]="localPlayer"></app-lobby>
+    <app-party [game]="game"></app-party>
+</div>
+<div *ngIf="game.status == gameStatus.WRITING_SENTENCES 
+            || game.status == gameStatus.DRAWING
+            || game.status == gameStatus.GUESSING;">
+    <app-party [game]="game"></app-party>
+</div>
+<div *ngIf="game.status == gameStatus.END;">
+</div>

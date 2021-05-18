@@ -1,0 +1,18 @@
+.party-container .party-nav .party-nav-users .party-nav-user {
+    display: flex;
+    justify-content: flex-start;
+    height: 10%;
+    margin-bottom: 1.5em;
+}
+
+.party-container .party-nav .party-nav-users .party-nav-user img {
+    width: 30%;
+}
+
+.party-container .party-nav .party-nav-users .party-nav-user span {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding-left: 0.75em;
+    font-weight: bolder;
+}

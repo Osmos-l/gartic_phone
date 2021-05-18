@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Game } from 'src/models/game';
+import { Game, GameStatus } from 'src/models/game';
+import { Player } from 'src/models/player';
+import { GameService } from 'src/services/game.service';
+import { SocketService } from 'src/services/socket.service';
 
 @Component({
   selector: 'app-default',
@@ -10,17 +13,37 @@ import { Game } from 'src/models/game';
 export class DefaultComponent implements OnInit {
 
   game: Game;
+  localPlayer: Player;
+  gameStatus = GameStatus;
 
-  constructor(private router: Router) { 
-    let game = JSON.parse(localStorage.getItem('game'));
-    if (game) {
+  constructor(private router: Router,
+              private socketService: SocketService,
+              private gameService: GameService) {}
+
+  ngOnInit(): void {
+    this.initContents();
+    this.connectToSocket();
+  }
+
+  initContents(): void {
+    let game = this.gameService.getGame();
+    let localPlayer = this.gameService.getLocalPlayer();
+
+    // On router.navigate or refreshed website
+    if (game && localPlayer) {
       this.game = game;
+      this.localPlayer = localPlayer;
     } else {
       this.router.navigate(['']);
     }
   }
 
-  ngOnInit(): void {
+  connectToSocket(): void {
+    this.socketService.getJoinResp()
+        .subscribe(game => {
+        this.game = game;
+        this.gameService.setGame(game);
+      }
+    )
   }
-
 }

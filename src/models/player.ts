@@ -2,9 +2,9 @@ import { Pictures } from "./pictures";
 
 export interface Player {
 
-    id: String;
+    id: string;
 
-    username: String;
+    username: string;
 
     picture: Pictures;
 

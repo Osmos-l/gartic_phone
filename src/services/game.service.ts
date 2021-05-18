@@ -1,50 +1,87 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Socket } from 'ngx-socket-io';
-import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Game } from 'src/models/game';
 import { Player } from 'src/models/player';
+import { SocketService } from './socket.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
 
-  private _API: String = "http://localhost:8080";
-
   constructor(
     private httpClient: HttpClient,
-    private socket: Socket,
+    private socketService: SocketService,
     private router: Router) {}
 
-  create(creator: Player) {
-    this.httpClient.post<Game>(`${this._API}/games`, creator)
-    .subscribe(
-      game => {
-        localStorage.setItem('game', JSON.stringify(game));
-        // TODO: navigate to default game component
-        this.router.navigate(["lobby/" + game.id]);
-      },
-      err => {
-        console.log('error => ' + err);
-        // TODO: Display error
+  getGame(): Game | null {
+    return JSON.parse(localStorage.getItem('game'));
+  }
+
+  getLocalPlayer(): Player | null {
+    return JSON.parse(localStorage.getItem('player'));
+  }
+
+  setGame(game: Game): void {
+    localStorage.setItem('game', JSON.stringify(game));
+  }
+
+  setLocalPlayer(player: Player): void {
+    localStorage.setItem('player', JSON.stringify(player));
+  }
+
+  create(creator: Player): void {
+    this.httpClient.post<Game>(`${environment.serverUrl}/games`, creator)
+      .subscribe(game => {
+        this.socketService.sendCreate(game.id);
+        this.setGame(game);
+        this.setLocalPlayer(game.creator);
+        this.router.navigate(["lobby/"]);
+      }, err => {
+        alert('Impossible de créer la partie.');
       }
     );
   }
 
-  join(id: Number, player: Player) {
-    this.httpClient.post<Game>(`${this._API}/games/${id}`, player)
-    .subscribe(
-      game => {
-        localStorage.setItem('game', JSON.stringify(game));
-        // TODO: navigate to default game component
-        this.router.navigate(["lobby/" + game.id]);
-      },
-      err => {
-        console.log('error => ' + err);
-        // TODO: Display error
+  join(id: string, player: Player): void {
+    this.httpClient.post<Game>(`${environment.serverUrl}/games/${id}`, player)
+      .subscribe(game => {
+        // Alert socket we join the game
+        this.socketService.sendJoin(id);
+
+        // TODO: Find a way that can return the player with player.id generated
+        this.setLocalPlayer(player);
+        this.setGame(game);
+
+        this.router.navigate(["lobby/"]);
+      }, err => { 
+        alert('Impossible de rejoindre la partie');
       }
-    );;
+    );
+  }
+
+  start(game: Game, requester: Player): void {
+    const id = game.id;
+
+    if (requester.id !== game.creator.id) {
+      return;
+    }
+
+    // Should edit game.status to WRITING_SENTENCES
+    this.httpClient.post<Game>(`${environment.serverUrl}/games/${id}/start`, requester)
+      .subscribe(game => {
+        this.socketService.sendStart(id);
+        this.setGame(game);
+      }, err => { 
+        alert('Impossible de lancer la partie');
+      }
+    );
+  }
+
+  
+  sendSentence(/* sentence: Sentence, gameId: string, player: Player */): void {
+    alert('STUB')
   }
 }

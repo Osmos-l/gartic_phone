@@ -1,6 +1,8 @@
+import { asLiteral } from '@angular/compiler/src/render3/view/util';
 import { Component, Input, OnInit } from '@angular/core';
 import { Game } from 'src/models/game';
-import { Pictures } from 'src/models/pictures';
+import { Player } from 'src/models/player';
+import { GameService } from 'src/services/game.service';
 
 @Component({
   selector: 'app-lobby',
@@ -12,11 +14,15 @@ export class LobbyComponent implements OnInit {
   @Input()
   game: Game;
 
-  constructor() { }
+  @Input()
+  localPlayer: Player;
+
+  constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
-    console.log('lobby component:');
-    console.log(this.game);
   }
 
+  launchGame(): void {
+    this.gameService.start(this.game, this.localPlayer);
+  }
 }

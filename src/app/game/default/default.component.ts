@@ -33,6 +33,8 @@ export class DefaultComponent implements OnInit {
     if (game && localPlayer) {
       this.game = game;
       this.localPlayer = localPlayer;
+      // ONLY FOR DEV (force game.status)
+      // this.game.status = 3;
     } else {
       this.router.navigate(['']);
     }

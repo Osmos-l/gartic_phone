@@ -4,7 +4,7 @@ import { CanvasComponent } from './canvas/canvas.component';
 import { DefaultComponent } from './default/default.component';
 
 const routes: Routes = [
-    { path :'', component: DefaultComponent },
+    //{ path :'', component: DefaultComponent },
     { path :'canvas', component: CanvasComponent }
 ];
 

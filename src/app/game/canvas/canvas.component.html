@@ -1,3 +1,3 @@
-<app-canvas-button (changeColorRequest)='changeColor($event)'></app-canvas-button>
-<app-draw></app-draw>
+<app-canvas-button (changeColorRequest)='changeColor($event)' (resetCanvasRequest)='resetCanvas()' (changeWidthRequest)='changeWidthCanvas()'></app-canvas-button>
+<app-draw [colorStyle] = 'color' [changeWidth] = 'newWidth' [resetCanvas]='resetDrowArea' (changeWidthOk) = 'changeWidthOk()' (resetOk) = 'resetOk()'></app-draw>
 

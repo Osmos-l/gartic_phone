@@ -18,19 +18,16 @@ export class Canvas {
         this.length = 0;
         this.newTaille();
         this.setColor('#000000');
-        this.isDrawing = true; // pour tester
+        this.isDrawing = false;
         this.xNew = 0;
         this.yNew = 0;
         this.xOld = 0;
         this.yOld = 0;
     }
 
-
     setColor(newColor: string): void {
         this.colorStyle = newColor;
     }
-
-
 
     clearContent(): void {
         this.canvas.getContext('2d')
@@ -61,7 +58,8 @@ export class Canvas {
 
         canvas2dContext.fillStyle = this.colorStyle;
         canvas2dContext.beginPath();
-        for (let i = 0; i < length; i++) { 
+
+        for (let i = 0; i < lengthLine; i++) { 
             canvas2dContext.arc(xStart + i * ajoutX, yStart + i * ajoutY, ray, 0, 
                                 Math.PI * 2, false);
         }
@@ -70,15 +68,14 @@ export class Canvas {
     }
 
     lineLength(xStart: number, yStart: number, xEnd: number, yEnd: number): number {
-        return Math.sqrt(
-                          (yEnd - yStart) * (yEnd - yStart) 
+        return Math.sqrt( (yEnd - yStart) * (yEnd - yStart) 
                         + (xEnd - xStart) * (xEnd - xStart));
     }
 
-
-    listeningPointerMove(e): void {
+    listeningPointerMove(e: any): void {
         this.xOld = this.xNew;
         this.yOld = this.yNew;
+        
         const rect = this.canvas.getBoundingClientRect();
 
         this.xNew = e.clientX - rect.left

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Game } from 'src/models/game';
+import { Player } from 'src/models/player';
 import { GameService } from 'src/services/game.service';
 
 @Component({
@@ -8,6 +10,12 @@ import { GameService } from 'src/services/game.service';
   styleUrls: ['./write.component.scss']
 })
 export class WriteComponent implements OnInit {
+
+  @Input()
+  game: Game;
+
+  @Input() 
+  player: Player;
 
   form: FormGroup;
 
@@ -25,6 +33,6 @@ export class WriteComponent implements OnInit {
   }
 
   sendSentence(): void {
-    this.gameService.sendSentence();
+    this.gameService.sendSentence(this.form.value, this.game.id, this.player);
   }
 }

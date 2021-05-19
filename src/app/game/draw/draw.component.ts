@@ -21,17 +21,22 @@ export class DrawComponent implements OnInit {
     return new Canvas (canvas);
   }
 
-  ngAfterViewInit(): void{
-    this.canvas = this.canvasElement.nativeElement;
+  ngAfterViewInit(): void {
+    this.canvasHTML = this.canvasElement.nativeElement;
     this.canvas = this.initCanvas(this.canvasHTML);
+    console.log(this.canvas);
   }
 
-  captureEvent(canvas : HTMLCanvasElement) {
-    
-    const source = fromEvent(this.canvasHTML,'pointermove');
+  pointerDown(): void {
+    this.canvas.clickOn();
+  }
 
-    source.subscribe(val =>this.canvas.listeningPointerMove(val) );
-    
+  pointerUp(): void {
+    this.canvas.clickOff();
+  }
+
+  pointerMove(event? : PointerEvent): void {
+    this.canvas.listeningPointerMove(event);
   }
 
 }

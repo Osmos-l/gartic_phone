@@ -12,4 +12,8 @@ export class CanvasComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  changeColor(newColor : string){
+    alert(newColor);
+  }
+
 }

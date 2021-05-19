@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Game, GameStatus } from 'src/models/game';
+import { Player } from 'src/models/player';
 
 @Component({
   selector: 'app-party',
@@ -10,6 +11,9 @@ export class PartyComponent implements OnInit {
 
   @Input()
   game: Game;
+
+  @Input()
+  localPlayer: Player;
 
   gameStatus = GameStatus;
 

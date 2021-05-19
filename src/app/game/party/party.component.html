@@ -11,7 +11,7 @@
         <div class='party-game-container'>
             <div *ngIf="game.status == gameStatus.WRITING_SENTENCES;">
                 <!-- Writing component with text input -->
-                <app-write [game]="game" [player]="localPlayer"></app-write>
+                <app-write [game]="game" [localPlayer]="localPlayer"></app-write>
             </div>
             <div *ngIf="game.status == gameStatus.DRAWING;">
                 <!-- Draw component with canvas-->

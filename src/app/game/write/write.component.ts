@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Game } from 'src/models/game';
 import { Player } from 'src/models/player';
 import { GameService } from 'src/services/game.service';
+import { SocketService } from 'src/services/socket.service';
 
 @Component({
   selector: 'app-write',
@@ -20,10 +21,12 @@ export class WriteComponent implements OnInit {
   form: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-              private gameService: GameService) {}
+              private gameService: GameService,
+              private socketService: SocketService) {}
 
   ngOnInit(): void {
     this.form = this.buildForm();
+    this.socketService.sendWriteMoment(this.game.id);
   }
 
   private buildForm(): FormGroup {

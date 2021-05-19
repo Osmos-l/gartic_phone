@@ -25,4 +25,8 @@ export class SocketService {
   getJoinResp(): Observable<Game> {
     return this.socket.fromEvent<Game>('game');
   }
+
+  sendWriteMoment(gameId: string): void {
+    this.socket.emit('write', gameId);
+  }
 }

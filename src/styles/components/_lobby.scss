@@ -2,11 +2,13 @@
     width: 100%;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
 .lobby {
+    
     background-color: #282A2A;
     border-radius: 1em;
     width: 50vh;
@@ -41,3 +43,8 @@
     font-size: x-small;
     text-align: center;
 }
+
+.copy {
+    cursor: copy;
+}
+

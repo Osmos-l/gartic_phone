@@ -2,7 +2,7 @@
     position: absolute;
     top: 2.5%;
     right: 2.5%;
-    padding: 0.75em 1em;
+    padding: 0.60em 1em;
     background-color: #E63946;
     border-radius: 50%;
     overflow: hidden;
@@ -15,7 +15,19 @@
     transform: scale(1.1);
 }
 
-.rules span {
+.rules span, div {
     color: white;
     font-weight: bold;
+    
+}
+
+div.explanations {
+    position: absolute;
+    top: 8%;
+    right: 8%;
+    border-radius: 10%;
+    background-color: #282A2A;
+    text-align: left;
+    padding: 15px;
+    width: 20%;
 }

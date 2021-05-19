@@ -3,6 +3,13 @@
         <h1>En attente de joueurs ...</h1>
         <div class='lobby-content' >
             <div class='lobby-players-row'>
+                <div class="crown">
+                    <div class="point"></div>
+                    <div class="point"></div>
+                    <div class="point"></div>
+                    <div class="point"></div>
+                    <div class="point"></div>
+                </div>
                 <app-lobby-player *ngFor="let player of (game.players)" [player]="player"></app-lobby-player>
             </div>
         </div>

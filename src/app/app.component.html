@@ -2,20 +2,31 @@
     <!-- changes show's value (boolean) on click -->
 </button>
 <div *ngIf = "show" class='explanations'>
-    <h2>Règles du jeu :</h2>
-    <br />
- Le Gartic Phone est une sorte de téléphone arabe/Pictionary. 
- <br />Il se joue en groupe (au moins 4 joueurs).
- <br />
- <br />
+    <h1>Règles du jeu</h1>
     <hr />
-
-    <br />Un 1er joueur commence en écrivant une phrase.
-    <br />Par exemple : "Marion a raté son bus." <br />
-    <br />La phrase est reçue par un 2nd joueur, qui doit dessiner la scène sur l'écran avec le pointeur de souris.<br />
-    <br />Un 3ème joueur reçoit le dessin et doit décrire ce qu'il y voit. Ca peut devenir "Marion court dans la rue".<br />
     <br />
-    Et ainsi de suite, chaque joueur décrit le dessin reçu ou dessine la phrase reçue, jusqu'à revenir au 1er joueur.
+    <div class="explanations-desc">
+        <p>
+            Le <span>Gartic Phone</span> est une sorte de téléphone arabe/Pictionary. 
+            <!-- TODO: Make environnement var 
+                                        |                   |
+                                        v                   v -->
+            <br />Il se joue en groupe (4 joueurs minimum, 10 joueurs maximum).  
+        </p>
+    </div>
+    <br />
+    <br />
+    <div class="explanations-exemple">
+        <p>
+            <br />Un 1er joueur commence en écrivant une phrase.
+            <br />Par exemple : "Marion a raté son bus." <br />
+            <br />La phrase est reçue par un 2nd joueur, qui doit dessiner la scène sur l'écran avec le pointeur de souris.<br />
+            <br />Un 3ème joueur reçoit le dessin et doit décrire ce qu'il y voit. Ca peut devenir "Marion court dans la rue".<br />
+            <br />
+            Et ainsi de suite, chaque joueur décrit le dessin reçu ou dessine la phrase reçue, jusqu'à revenir au 1er joueur.
+        </p>
+    </div>
+    
 </div>
 
 <router-outlet></router-outlet>

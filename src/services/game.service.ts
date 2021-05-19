@@ -48,13 +48,9 @@ export class GameService {
   join(id: string, player: Player): void {
     this.httpClient.post<Game>(`${environment.serverUrl}/games/${id}`, player)
       .subscribe(game => {
-        // Alert socket we join the game
         this.socketService.sendJoin(id);
-
-        // TODO: Find a way that can return the player with player.id generated
         this.setLocalPlayer(player);
         this.setGame(game);
-
         this.router.navigate(["lobby/"]);
       }, err => { 
         alert(err.error.Error);
@@ -69,7 +65,6 @@ export class GameService {
       return;
     }
 
-    // Should edit game.status to WRITING_SENTENCES
     this.httpClient.post<Game>(`${environment.serverUrl}/games/${id}/start`, requester)
       .subscribe(game => {
         this.socketService.sendStart(id);

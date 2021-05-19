@@ -1,5 +1,3 @@
-import { identifierModuleUrl } from '@angular/compiler';
-import { asLiteral } from '@angular/compiler/src/render3/view/util';
 import { Component, Input, OnInit } from '@angular/core';
 import { Game } from 'src/models/game';
 import { Player } from 'src/models/player';
@@ -30,7 +28,7 @@ export class LobbyComponent implements OnInit {
   copyGameIdInClipBoard(): void {
     navigator.clipboard.writeText(this.game.id);
     let idGameArea = document.getElementsByClassName("copy")[0] as HTMLElement;
-    idGameArea.style.color="#E63946";
-    setTimeout(()=>{idGameArea.style.color="white";},1000);
+    idGameArea.style.color = "#E63946";
+    setTimeout(() => { idGameArea.style.color = "white"; }, 1000);
   }
 }

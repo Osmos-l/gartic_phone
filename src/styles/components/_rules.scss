@@ -16,9 +16,7 @@
 }
 
 .rules span, div {
-    color: white;
-    font-weight: bold;
-    
+    color: white;    
 }
 
 div.explanations {
@@ -27,7 +25,24 @@ div.explanations {
     right: 8%;
     border-radius: 10%;
     background-color: #282A2A;
-    text-align: left;
-    padding: 15px;
-    width: 20%;
+    text-align: justify;
+    padding: 20px;
+    width: 25%;
+    box-shadow: 0 10px 6px -3px #323434;
+
+    & h1 {
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 0.75em;
+        font-weight: bold;
+    }
+
+    & p {
+        line-height: 1.5em;
+    }
+
+    & p > span {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
 }

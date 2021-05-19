@@ -5,7 +5,8 @@
 <div *ngIf="game.status == gameStatus.WRITING_SENTENCES 
             || game.status == gameStatus.DRAWING
             || game.status == gameStatus.GUESSING;">
-    <app-party [game]="game"></app-party>
+    <app-party [game]="game"
+               [localPlayer]="localPlayer"></app-party>
 </div>
 <div *ngIf="game.status == gameStatus.END;">
 </div>

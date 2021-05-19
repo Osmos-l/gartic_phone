@@ -16,7 +16,7 @@ export class Canvas {
     constructor(canvas: HTMLCanvasElement) {
         this.canvas = canvas
         this.length = 0;
-        this.newTaille();
+        this.newWidth();
         this.setColor('#000000');
         this.isDrawing = false;
         this.xNew = 0;
@@ -34,7 +34,7 @@ export class Canvas {
                     .clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
-    newTaille(): void {
+    newWidth(): void {
         this.length = (this.length + 7) % 20;
     }
 

@@ -38,7 +38,6 @@ export class HomeComponent {
     }
 
     const player: Player = {
-      "id": null,
       "picture": Pictures.MALE,
       username
     }
@@ -55,7 +54,6 @@ export class HomeComponent {
     }
 
     const creator: Player = {
-      "id": null,
       "picture": Pictures.MALE,
       username
     }

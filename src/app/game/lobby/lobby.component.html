@@ -6,7 +6,7 @@
                 <app-lobby-player *ngFor="let player of (game.players)" [player]="player"></app-lobby-player>
             </div>
         </div>
-        <button *ngIf="game.creator.id == localPlayer.id" 
+        <button *ngIf="game.creator.username == localPlayer.username" 
                 (click)="launchGame()"
                 class='lobby-action'>Lancer la partie</button>
         <h2 class='lobby-id'>ID de la partie : {{ game.id }}</h2>

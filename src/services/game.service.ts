@@ -40,7 +40,7 @@ export class GameService {
         this.setLocalPlayer(game.creator);
         this.router.navigate(["lobby/"]);
       }, err => {
-        alert('Impossible de créer la partie.');
+        alert(err.error.Error);
       }
     );
   }
@@ -57,7 +57,7 @@ export class GameService {
 
         this.router.navigate(["lobby/"]);
       }, err => { 
-        alert('Impossible de rejoindre la partie');
+        alert(err.error.Error);
       }
     );
   }
@@ -65,7 +65,7 @@ export class GameService {
   start(game: Game, requester: Player): void {
     const id = game.id;
 
-    if (requester.id !== game.creator.id) {
+    if (requester.username !== game.creator.username) {
       return;
     }
 
@@ -75,13 +75,18 @@ export class GameService {
         this.socketService.sendStart(id);
         this.setGame(game);
       }, err => { 
-        alert('Impossible de lancer la partie');
+        alert(err.error.Error);
       }
     );
   }
 
-  
-  sendSentence(/* sentence: Sentence, gameId: string, player: Player */): void {
-    alert('STUB')
+  sendSentence(sentence: string, gameId: string, player: Player): void {
+    this.httpClient.post<string>(`${environment.serverUrl}/games/${gameId}/sentence`, { sentence, player })
+      .subscribe(sentence => {
+        // TODO: Remove send btn and wait everybody send 
+      }, err => {
+        alert(err.error.Error);
+      }
+    );
   }
 }

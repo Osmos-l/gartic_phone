@@ -6,35 +6,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./canvas.component.scss']
 })
 export class CanvasComponent implements OnInit {
-  color : string;
+  color: string;
 
-  newWidth : boolean = false;
+  newWidth: boolean = false;
 
-  resetDrowArea : boolean = false;
+  resetDrawArea: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  changeColor(newColor : string){
+  changeColor(newColor: string) {
     this.color = newColor;
   }
 
-  resetCanvas(){
-    this.resetDrowArea = true;
+  resetCanvas(): void {
+    this.resetDrawArea = true;
   }
 
-  changeWidthCanvas(){
+  changeWidthCanvas(): void {
     this.newWidth = true;
   }
 
-  changeWidthOk(){
+  changeWidthOk(): void {
     this.newWidth = false;
   }
 
-  resetOk(){
-    this.resetDrowArea = false;
+  resetOk(): void {
+    this.resetDrawArea = false;
   }
 
 }

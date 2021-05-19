@@ -15,7 +15,7 @@
             </div>
             <div *ngIf="game.status == gameStatus.DRAWING;">
                 <!-- Draw component with canvas-->
-                <app-draw></app-draw>
+                <app-canvas></app-canvas>
             </div>
             <div *ngIf="game.status == gameStatus.GUESSING;">
                 <!-- Guess component with canvas & text input -->

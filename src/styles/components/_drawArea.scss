@@ -1,14 +1,9 @@
-#drowArea{
-    border: 1px solid #36393B;;
-    background-color: #FFFFFF;
-    display: flex;
-    margin:0 auto;  
-}
+#drawArea {
+    border: 1px solid #36393B;
+    background-color: white;
+    margin: 0 auto;
 
-
-#drowArea:hover{
-    border: 1px solid #aecde2;;
-
-    display: flex;
-    margin:0 auto;  
+    &:hover {
+        border: 1px solid #aecde2;
+    }
 }

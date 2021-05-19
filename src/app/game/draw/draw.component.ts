@@ -1,5 +1,4 @@
-import { Component, Input,Output, OnInit,AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { Observable,fromEvent } from 'rxjs';
+import { Component, Input,Output, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Canvas } from '../../../models/canvas';
 import { EventEmitter } from '@angular/core';
 
@@ -13,25 +12,24 @@ export class DrawComponent implements OnInit {
   @Output() changeWidthOk : EventEmitter<any> = new EventEmitter();
   @Output() resetOk : EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('drowArea') public canvasElement : ElementRef;
+  @ViewChild('drawArea') public canvasElement : ElementRef;
   canvasHTML : HTMLCanvasElement;
   canvas : Canvas;
   
-  @Input() set colorStyle(newColor: string){
+  @Input() set colorStyle(newColor: string) {
     this.canvas.setColor(newColor);
   }
 
-  @Input() set changeWidth(generateNewWidth : boolean){
+  @Input() set changeWidth(generateNewWidth : boolean) {
     this.canvas.newWidth();
     this.changeWidthOk.emit();
   }
 
-  @Input() set resetCanvas(resetArea : boolean){
+  @Input() set resetCanvas(resetArea : boolean) {
     this.canvas.clearContent();
     this.resetOk.emit();
   }
    
-
   @Input()
   clearContext : boolean = false;
 
@@ -40,8 +38,8 @@ export class DrawComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  initCanvas(canvas: HTMLCanvasElement): Canvas{
-    return new Canvas (canvas);
+  initCanvas(canvas: HTMLCanvasElement): Canvas { 
+    return new Canvas(canvas);
   }
 
   ngAfterViewInit(): void {
@@ -62,7 +60,7 @@ export class DrawComponent implements OnInit {
     this.canvas.listeningPointerMove(event);
   }
 
-  setColor(newColor : string){
+  setColor(newColor : string) {
     this.canvas.setColor(newColor);
   }
 

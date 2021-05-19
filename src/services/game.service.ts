@@ -69,7 +69,6 @@ export class GameService {
       return;
     }
 
-    // Should edit game.status to WRITING_SENTENCES
     this.httpClient.post<Game>(`${environment.serverUrl}/games/${id}/start`, requester)
       .subscribe(game => {
         this.socketService.sendStart(id);

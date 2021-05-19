@@ -15,7 +15,7 @@ export class WriteComponent implements OnInit {
   game: Game;
 
   @Input() 
-  player: Player;
+  localPlayer: Player;
 
   form: FormGroup;
 
@@ -33,6 +33,6 @@ export class WriteComponent implements OnInit {
   }
 
   sendSentence(): void {
-    this.gameService.sendSentence(this.form.value, this.game.id, this.player);
+    this.gameService.sendSentence(this.form.value.sentence, this.game.id, this.localPlayer);
   }
 }

@@ -25,12 +25,9 @@ export class Canvas {
         this.yOld = 0;
     }
 
-
     setColor(newColor: string): void {
         this.colorStyle = newColor;
     }
-
-
 
     clearContent(): void {
         this.canvas.getContext('2d')
@@ -75,8 +72,7 @@ export class Canvas {
                         + (xEnd - xStart) * (xEnd - xStart));
     }
 
-
-    listeningPointerMove(e): void {
+    listeningPointerMove(e: any): void {
         this.xOld = this.xNew;
         this.yOld = this.yNew;
         

@@ -11,7 +11,6 @@ export class LobbyPlayerComponent implements OnInit {
 
   @Input()
   player: Player = {
-    "id": null,
     "username": null,
     "picture": Pictures.MALE
   }

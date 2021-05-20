@@ -1,3 +1,9 @@
+export const CanvasLineThickness = {
+    SMALL: 4,
+    MEDIUM: 7,
+    BIG: 14
+}
+
 export class Canvas {
     xNew: number;
     yNew: number;
@@ -9,14 +15,13 @@ export class Canvas {
 
     colorStyle: string;
 
-    length: number;
+    length: number; // TODO: Rename lineThickness
 
     canvas: HTMLCanvasElement;
 
     constructor(canvas: HTMLCanvasElement) {
         this.canvas = canvas
-        this.length = 0;
-        this.newWidth();
+        this.length = CanvasLineThickness.SMALL;
         this.setColor('#000000');
         this.isDrawing = false;
         this.xNew = 0;
@@ -34,8 +39,8 @@ export class Canvas {
                     .clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
-    newWidth(): void {
-        this.length = (this.length + 7) % 20;
+    updateLineThickness(thickness: number): void {
+        this.length = thickness;
     }
 
     orderly(xNew: number, yNew: number, xOld: number, yOld: number): void {

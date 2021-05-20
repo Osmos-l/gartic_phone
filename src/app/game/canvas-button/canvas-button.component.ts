@@ -17,7 +17,7 @@ export class CanvasButtonComponent implements OnInit {
   color: string = '';
 
   @Input()
-  width: number = -1;
+  thickness: number = -1;
 
   constructor() { }
 
@@ -32,8 +32,8 @@ export class CanvasButtonComponent implements OnInit {
     let arg: string | number | boolean = false;
     if (this.color !== '') {
       arg = this.color;
-    } else if (this.width !== -1) {
-      arg = this.width;
+    } else if (this.thickness !== -1) {
+      arg = this.thickness;
     } else if (event && event.target && event.target.value) { // COLOR PICKER
       arg = event.target.value;
     }

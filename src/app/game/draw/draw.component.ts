@@ -8,9 +8,6 @@ import { EventEmitter } from '@angular/core';
   styleUrls: ['./draw.component.scss']
 })
 export class DrawComponent implements OnInit {
-
-  @Output() 
-  changeWidthOk : EventEmitter<any> = new EventEmitter();
   
   @Output()
   resetOk : EventEmitter<any> = new EventEmitter();
@@ -26,9 +23,8 @@ export class DrawComponent implements OnInit {
   }
 
   @Input() 
-  set changeWidth(generateNewWidth : boolean) {
-    this.canvas.newWidth();
-    this.changeWidthOk.emit();
+  set updateThickness(thickness : number) {
+    this.canvas.updateLineThickness(thickness);
   }
 
   @Input() 

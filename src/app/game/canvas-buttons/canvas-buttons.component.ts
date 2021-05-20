@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { CanvasLineThickness } from 'src/models/canvas';
 
 @Component({
   selector: 'app-canvas-buttons',
@@ -19,6 +20,12 @@ export class CanvasButtonsComponent implements OnInit {
     "#35DEEC", // BLUE
     "#24F143" // GREEN 
   ];
+
+  thicknesses: number[] = [
+    CanvasLineThickness.SMALL,
+    CanvasLineThickness.MEDIUM,
+    CanvasLineThickness.BIG
+  ]
 
   constructor() { }
 

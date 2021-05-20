@@ -13,7 +13,7 @@ export class CanvasComponent implements OnInit {
   game: Game;
 
   color: string;
-  newWidth: boolean = false;
+  thickness: number;
   resetDrawArea: boolean = false;
 
   constructor(private socketService: SocketService) { }
@@ -27,6 +27,7 @@ export class CanvasComponent implements OnInit {
       this.changeColor(arg);
     } else if (typeof(arg) === "number") {
       // TODO: change width of drawing
+      this.thickness = arg;
     } else {
       // TODO: Reset canvas
     }
@@ -36,16 +37,12 @@ export class CanvasComponent implements OnInit {
     this.color = newColor;
   }
 
+  updateLineTchikness(thickness: number) {
+    this.thickness = thickness;
+  }
+
   resetCanvas(): void {
     this.resetDrawArea = true;
-  }
-
-  changeWidthCanvas(): void {
-    this.newWidth = true;
-  }
-
-  changeWidthOk(): void {
-    this.newWidth = false;
   }
 
   resetOk(): void {

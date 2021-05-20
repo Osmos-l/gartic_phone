@@ -5,9 +5,8 @@
     <app-canvas-buttons
     (onClick)="onClick($event)"></app-canvas-buttons>
     <app-draw [colorStyle] = 'color' 
-          [changeWidth] = 'newWidth' 
+          [updateThickness] = 'thickness' 
           [resetCanvas]='resetDrawArea' 
-          (changeWidthOk) = 'changeWidthOk()' 
           (resetOk) = 'resetOk()'></app-draw>
 </div>
 

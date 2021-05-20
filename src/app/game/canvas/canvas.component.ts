@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Game } from 'src/models/game';
+import { SocketService } from 'src/services/socket.service';
 
 @Component({
   selector: 'app-canvas',
@@ -6,15 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./canvas.component.scss']
 })
 export class CanvasComponent implements OnInit {
+
+  @Input()
+  game: Game;
+
   color: string;
-
   newWidth: boolean = false;
-
   resetDrawArea: boolean = false;
 
-  constructor() { }
+  constructor(private socketService: SocketService) { }
 
   ngOnInit(): void {
+    this.socketService.sendDrawMoment(this.game.id);
   }
 
   changeColor(newColor: string) {

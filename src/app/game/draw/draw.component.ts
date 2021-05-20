@@ -9,23 +9,30 @@ import { EventEmitter } from '@angular/core';
 })
 export class DrawComponent implements OnInit {
 
-  @Output() changeWidthOk : EventEmitter<any> = new EventEmitter();
-  @Output() resetOk : EventEmitter<any> = new EventEmitter();
+  @Output() 
+  changeWidthOk : EventEmitter<any> = new EventEmitter();
+  
+  @Output()
+  resetOk : EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('drawArea') public canvasElement : ElementRef;
+  @ViewChild('drawArea') 
+  public canvasElement : ElementRef;
   canvasHTML : HTMLCanvasElement;
   canvas : Canvas;
   
-  @Input() set colorStyle(newColor: string) {
+  @Input() 
+  set colorStyle(newColor: string) {
     this.canvas.setColor(newColor);
   }
 
-  @Input() set changeWidth(generateNewWidth : boolean) {
+  @Input() 
+  set changeWidth(generateNewWidth : boolean) {
     this.canvas.newWidth();
     this.changeWidthOk.emit();
   }
 
-  @Input() set resetCanvas(resetArea : boolean) {
+  @Input() 
+  set resetCanvas(resetArea : boolean) {
     this.canvas.clearContent();
     this.resetOk.emit();
   }
@@ -33,9 +40,18 @@ export class DrawComponent implements OnInit {
   @Input()
   clearContext : boolean = false;
 
+  timer: number = 0;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.startTimer();
+  }
+
+  
+  startTimer() {
+    setTimeout(() => {
+    }, 20000)
   }
 
   initCanvas(canvas: HTMLCanvasElement): Canvas { 
@@ -63,5 +79,4 @@ export class DrawComponent implements OnInit {
   setColor(newColor : string) {
     this.canvas.setColor(newColor);
   }
-
 }

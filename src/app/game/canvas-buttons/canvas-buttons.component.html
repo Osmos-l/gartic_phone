@@ -1,0 +1,5 @@
+<div class="palette">
+    <app-canvas-button  *ngFor="let color of (colors)" 
+                        [color]="color"
+                        (onClick)="onButtonClick($event)"></app-canvas-button>
+</div>

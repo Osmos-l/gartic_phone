@@ -1,9 +1,13 @@
-<app-canvas-button  (changeColorRequest)='changeColor($event)' 
-                    (resetCanvasRequest)='resetCanvas()' 
-                    (changeWidthRequest)='changeWidthCanvas()'></app-canvas-button>
-<app-draw [colorStyle] = 'color' 
+<div class="app-draw-sentence">
+    30's - STUB SENTENCE & TIMER
+</div>
+<div class="content">
+    <app-canvas-buttons
+    (onClick)="onClick($event)"></app-canvas-buttons>
+    <app-draw [colorStyle] = 'color' 
           [changeWidth] = 'newWidth' 
           [resetCanvas]='resetDrawArea' 
           (changeWidthOk) = 'changeWidthOk()' 
           (resetOk) = 'resetOk()'></app-draw>
+</div>
 

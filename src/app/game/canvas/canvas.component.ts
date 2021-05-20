@@ -22,6 +22,16 @@ export class CanvasComponent implements OnInit {
     this.socketService.sendDrawMoment(this.game.id);
   }
 
+  onClick(arg: string | number | boolean): void {
+    if (typeof(arg) === "string" ) {
+      this.changeColor(arg);
+    } else if (typeof(arg) === "number") {
+      // TODO: change width of drawing
+    } else {
+      // TODO: Reset canvas
+    }
+  }
+
   changeColor(newColor: string) {
     this.color = newColor;
   }

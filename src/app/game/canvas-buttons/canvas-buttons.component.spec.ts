@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CanvasDrawAreaComponent } from './canvas-draw-area.component';
+import { CanvasButtonsComponent } from './canvas-buttons.component';
 
-describe('CanvasDrawAreaComponent', () => {
-  let component: CanvasDrawAreaComponent;
-  let fixture: ComponentFixture<CanvasDrawAreaComponent>;
+describe('CanvasButtonsComponent', () => {
+  let component: CanvasButtonsComponent;
+  let fixture: ComponentFixture<CanvasButtonsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CanvasDrawAreaComponent ]
+      declarations: [ CanvasButtonsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CanvasDrawAreaComponent);
+    fixture = TestBed.createComponent(CanvasButtonsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

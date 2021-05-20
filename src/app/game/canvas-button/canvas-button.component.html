@@ -1,4 +1,9 @@
-<div class ="buttonBar">
+<button (click)="emitClick()">
+    <div *ngIf="color !== ''"
+         [style]="'background-color: ' + color" >
+    </div>
+</button>
+<!-- <div class ="buttonBar">
     <input id="btn_noir" type="button" value="Noir"   (click)="changeColorEmitter('#000000')">
     <input id="btn_blanc" type="button" value="Blanc" (click)="changeColorEmitter('#ffffff')">
     <input id="btn_rouge" type="button" value="Rouge" (click)="changeColorEmitter('#FF3030')">
@@ -7,4 +12,4 @@
     <input id="btn_reset" type="button" value="Reset" (click)="resetCanvasEmitter()">
     <input #colorPicker type="color" id="colorPicker" name="head" [value]="colorStyle" (change)='colorPickerChange($event)'>
     <input id="btn_taille" type="button" value="taille" (click)="changeWidthEmitter()">
-</div>
+</div> -->

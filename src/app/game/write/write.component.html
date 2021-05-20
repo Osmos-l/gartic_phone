@@ -3,6 +3,8 @@
     <form [formGroup]="form">
         <input type="text" placeholder="votre phrase" formControlName="sentence" required />
         <p>TODO: Should be a timer instead of button</p>
-        <button class="menu-content-action btn-border-red" (click)="sendSentence()">Envoyer</button>
+        <button  *ngIf="!isSended"
+                class="menu-content-action btn-border-red" 
+                (click)="sendSentence()">Envoyer</button>
     </form>
 </div>

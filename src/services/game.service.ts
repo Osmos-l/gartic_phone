@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Game } from 'src/models/game';
 import { Player } from 'src/models/player';
@@ -75,13 +77,12 @@ export class GameService {
     );
   }
 
-  sendSentence(sentence: string, gameId: string, player: Player): void {
-    this.httpClient.post<string>(`${environment.serverUrl}/games/${gameId}/sentence`, { sentence, player })
-      .subscribe(sentence => {
-        // TODO: Remove send btn and wait everybody send 
-      }, err => {
-        alert(err.error.Error);
-      }
-    );
+  sendSentence(sentence: string, gameId: string, player: Player): Observable<string> {
+    return this.httpClient.post<string>(`${environment.serverUrl}/games/${gameId}/sentence`, { sentence, player })
+          .pipe(
+            catchError( err => { 
+              alert(err.error);
+              return ""; /* TODO: error handling with real notifications */})
+          );
   }
 }

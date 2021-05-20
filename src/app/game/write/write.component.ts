@@ -18,6 +18,8 @@ export class WriteComponent implements OnInit {
   @Input() 
   localPlayer: Player;
 
+  isSended: boolean = false;
+
   form: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
@@ -36,6 +38,9 @@ export class WriteComponent implements OnInit {
   }
 
   sendSentence(): void {
-    this.gameService.sendSentence(this.form.value.sentence, this.game.id, this.localPlayer);
+    this.gameService.sendSentence(this.form.value.sentence, this.game.id, this.localPlayer)
+    .subscribe(
+      sentence => this.isSended = true
+    );
   }
 }

@@ -14,7 +14,7 @@ export class DrawComponent implements OnInit {
 
   @ViewChild('drawArea') 
   public canvasElement : ElementRef;
-  canvasHTML : HTMLCanvasElement;
+
   canvas : Canvas;
   
   @Input() 
@@ -33,9 +33,6 @@ export class DrawComponent implements OnInit {
     this.resetOk.emit();
   }
    
-  @Input()
-  clearContext : boolean = false;
-
   timer: number = 0;
 
   constructor() { }
@@ -44,7 +41,6 @@ export class DrawComponent implements OnInit {
     this.startTimer();
   }
 
-  
   startTimer() {
     setTimeout(() => {
     }, 20000)
@@ -55,8 +51,8 @@ export class DrawComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    this.canvasHTML = this.canvasElement.nativeElement;
-    this.canvas = this.initCanvas(this.canvasHTML);
+    const canvasHTML = this.canvasElement.nativeElement;
+    this.canvas = this.initCanvas(canvasHTML);
     console.log(this.canvas);
   }
 
@@ -68,11 +64,11 @@ export class DrawComponent implements OnInit {
     this.canvas.clickOff();
   }
 
-  pointerMove(event? : PointerEvent): void {
+  pointerMove(event?: PointerEvent): void {
     this.canvas.listeningPointerMove(event);
   }
 
-  setColor(newColor : string) {
+  setColor(newColor: string): void {
     this.canvas.setColor(newColor);
   }
 }

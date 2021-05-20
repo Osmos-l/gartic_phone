@@ -5,4 +5,7 @@
     <div *ngIf="thickness !== -1" class="palette-thickness"
     [style]="'width: ' + thickness + 'px;height: ' + thickness + 'px;'">
     </div>
+    <p *ngIf="content !== ''" >
+        {{ content }}
+    </p>
 </button>

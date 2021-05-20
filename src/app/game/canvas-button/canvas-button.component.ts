@@ -11,13 +11,14 @@ export class CanvasButtonComponent implements OnInit {
   @Output()
     onClick : EventEmitter<string | number | boolean> = new EventEmitter();
 
-  colorStyle : string = 'FFFFFF';
-
   @Input()
   color: string = '';
 
   @Input()
   thickness: number = -1;
+
+  @Input()
+  content: string = '';
 
   constructor() { }
 

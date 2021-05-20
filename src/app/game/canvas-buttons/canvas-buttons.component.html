@@ -5,6 +5,9 @@
     <app-canvas-button  *ngFor="let thickness of (thicknesses)" 
                         [thickness]="thickness"
                         (onClick)="onButtonClick($event)"></app-canvas-button>
+    <app-canvas-button 
+                        [content]="'reset'"
+                        (onClick)="onButtonClick($event)"></app-canvas-button>
                         <!--
     <input id="btn_reset" type="button" value="Reset" (click)="resetCanvasEmitter()">
     <input #colorPicker type="color" id="colorPicker" name="head" [value]="colorStyle" (change)='colorPickerChange($event)'>

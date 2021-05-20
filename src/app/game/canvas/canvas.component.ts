@@ -24,25 +24,13 @@ export class CanvasComponent implements OnInit {
 
   onClick(arg: string | number | boolean): void {
     if (typeof(arg) === "string" ) {
-      this.changeColor(arg);
+      this.color = arg;
     } else if (typeof(arg) === "number") {
-      // TODO: change width of drawing
       this.thickness = arg;
     } else {
       // TODO: Reset canvas
+      this.resetDrawArea = true;
     }
-  }
-
-  changeColor(newColor: string) {
-    this.color = newColor;
-  }
-
-  updateLineTchikness(thickness: number) {
-    this.thickness = thickness;
-  }
-
-  resetCanvas(): void {
-    this.resetDrawArea = true;
   }
 
   resetOk(): void {

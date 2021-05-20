@@ -15,13 +15,13 @@ export class Canvas {
 
     colorStyle: string;
 
-    length: number; // TODO: Rename lineThickness
+    lineThickness: number;
 
     canvas: HTMLCanvasElement;
 
     constructor(canvas: HTMLCanvasElement) {
         this.canvas = canvas
-        this.length = CanvasLineThickness.SMALL;
+        this.lineThickness = CanvasLineThickness.SMALL;
         this.setColor('#000000');
         this.isDrawing = false;
         this.xNew = 0;
@@ -40,7 +40,7 @@ export class Canvas {
     }
 
     updateLineThickness(thickness: number): void {
-        this.length = thickness;
+        this.lineThickness = thickness;
     }
 
     orderly(xNew: number, yNew: number, xOld: number, yOld: number): void {
@@ -53,7 +53,7 @@ export class Canvas {
     }
 
     lineDraw(xStart: number, yStart: number, xEnd: number, yEnd: number): void {
-        const ray = this.length; 
+        const ray = this.lineThickness; 
         const lengthLine = this.lineLength(xStart, yStart, xEnd, yEnd);
 
         const ajoutX = (xEnd - xStart) / lengthLine;

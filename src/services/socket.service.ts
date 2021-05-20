@@ -29,4 +29,8 @@ export class SocketService {
   sendWriteMoment(gameId: string): void {
     this.socket.emit('write', gameId);
   }
+
+  sendDrawMoment(gameId: string): void {
+    this.socket.emit('draw', gameId);
+  }
 }

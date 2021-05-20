@@ -15,6 +15,7 @@ import { CanvasButtonComponent } from './canvas-button/canvas-button.component';
 import { PartyComponent } from './party/party.component';
 import { PartyPlayerComponent } from './party-player/party-player.component';
 import { WriteComponent } from './write/write.component';
+import { TimerComponent } from './timer/timer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { WriteComponent } from './write/write.component';
     CanvasButtonComponent,
     PartyComponent,
     PartyPlayerComponent,
-    WriteComponent
+    WriteComponent,
+    TimerComponent
   ],
   imports: [
     GameRoutingModule,

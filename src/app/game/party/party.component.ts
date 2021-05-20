@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { timer } from 'rxjs';
 import { Game, GameStatus } from 'src/models/game';
 import { Player } from 'src/models/player';
 

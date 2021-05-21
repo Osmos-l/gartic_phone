@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
-const DEFAULT_VALUE: number = 30;
+const DEFAULT_VALUE: number = environment.time;
 
 @Component({
   selector: 'app-timer',
@@ -23,11 +24,10 @@ export class TimerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let gameTimer = setInterval(() => 
-    {
+    let gameTimer = setInterval(() => {
       if (this.value == 0) {
         this.stopTimer(); 
       } else {this.value--}
-    }, 1000);
+    }, environment.timerMsToSec);
   }
 }

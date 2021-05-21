@@ -39,8 +39,9 @@ export class HomeComponent {
 
     const player: Player = {
       "picture": Pictures.MALE,
-      username
-    }
+      username,
+      "sentence": "",
+    };
 
     this.gameService.join(gameId, player);
   }
@@ -55,8 +56,9 @@ export class HomeComponent {
 
     const creator: Player = {
       "picture": Pictures.MALE,
-      username
-    }
+      username,
+      "sentence": "",
+    };
 
     this.gameService.create(creator);
   }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Game } from 'src/models/game';
+import { Player } from 'src/models/player';
 import { SocketService } from 'src/services/socket.service';
 
 @Component({
@@ -12,6 +13,9 @@ export class CanvasComponent implements OnInit {
   @Input()
   game: Game;
 
+  @Input()
+  localPlayer: Player;
+
   color: string;
   thickness: number;
   resetDrawArea: boolean = false;
@@ -19,6 +23,7 @@ export class CanvasComponent implements OnInit {
   constructor(private socketService: SocketService) { }
 
   ngOnInit(): void {
+    this.getPlayerSentence();
     this.socketService.sendDrawMoment(this.game.id);
   }
 
@@ -37,4 +42,11 @@ export class CanvasComponent implements OnInit {
     this.resetDrawArea = false;
   }
 
+  getPlayerSentence(): void {
+    for (let player of this.game.players) {
+      if (player.username === this.localPlayer.username) {
+        this.localPlayer.sentence = player.sentence;
+      }
+    }
+  }
 }

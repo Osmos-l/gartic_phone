@@ -12,7 +12,8 @@ export class PartyPlayerComponent implements OnInit {
   @Input()
   player: Player = {
     "username": null,
-    "picture": Pictures.MALE
+    "picture": Pictures.MALE,
+    "sentence": ""
   };
 
   constructor() { }

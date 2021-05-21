@@ -5,4 +5,6 @@ export interface Player {
     username: string;
 
     picture: Pictures;
+
+    sentence: string;
 }

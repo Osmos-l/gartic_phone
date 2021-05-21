@@ -43,10 +43,9 @@ export class CanvasComponent implements OnInit {
   }
 
   getPlayerSentence(): void {
-    for (let player of this.game.players) {
-      if (player.username === this.localPlayer.username) {
-        this.localPlayer.sentence = player.sentence;
-      }
-    }
+    this.localPlayer.sentence = 
+      this.game.players.find(player => 
+        player.username === this.localPlayer.username
+      ).sentence;
   }
 }

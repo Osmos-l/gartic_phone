@@ -6,6 +6,7 @@ import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Game } from 'src/models/game';
 import { Player } from 'src/models/player';
+import { NotificationService } from './notification.service';
 import { SocketService } from './socket.service';
 
 @Injectable({
@@ -16,7 +17,8 @@ export class GameService {
   constructor(
     private httpClient: HttpClient,
     private socketService: SocketService,
-    private router: Router) {}
+    private router: Router,
+    private notificationService: NotificationService) {}
 
   getGame(): Game | null {
     return JSON.parse(localStorage.getItem('game'));
@@ -42,6 +44,7 @@ export class GameService {
         this.setLocalPlayer(game.creator);
         this.router.navigate(["lobby/"]);
       }, err => {
+        this.notificationService.error(err.error.Error);
         alert(err.error.Error);
       }
     );
@@ -55,6 +58,7 @@ export class GameService {
         this.setGame(game);
         this.router.navigate(["lobby/"]);
       }, err => { 
+        this.notificationService.error(err.error.Error);
         alert(err.error.Error);
       }
     );
@@ -72,6 +76,7 @@ export class GameService {
         this.socketService.sendStart(id);
         this.setGame(game);
       }, err => { 
+        this.notificationService.error(err.error.Error);
         alert(err.error.Error);
       }
     );
@@ -81,8 +86,10 @@ export class GameService {
     return this.httpClient.post<string>(`${environment.serverUrl}/games/${gameId}/sentence`, { sentence, player })
           .pipe(
             catchError( err => { 
+              this.notificationService.error(err.error);
               alert(err.error);
-              return ""; /* TODO: error handling with real notifications */})
+              return "";
+            })
           );
   }
 }

@@ -1,5 +1,6 @@
 <div class="notifications">
 	<div *ngFor="let notification of notifications" class="notification" [ngClass]="className(notification)">
+		<!-- TODO: ADD CLOSE BUTTON -->
 		{{ notification.content }}
 	</div>
 </div>

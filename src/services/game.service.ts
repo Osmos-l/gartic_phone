@@ -45,7 +45,7 @@ export class GameService {
         this.router.navigate(["lobby/"]);
       }, err => {
         this.notificationService.error(err.error.Error);
-        alert(err.error.Error);
+        console.log(err.error.Error);
       }
     );
   }
@@ -59,7 +59,7 @@ export class GameService {
         this.router.navigate(["lobby/"]);
       }, err => { 
         this.notificationService.error(err.error.Error);
-        alert(err.error.Error);
+        console.log(err.error.Error);
       }
     );
   }
@@ -77,7 +77,7 @@ export class GameService {
         this.setGame(game);
       }, err => { 
         this.notificationService.error(err.error.Error);
-        alert(err.error.Error);
+        console.log(err.error.Error);
       }
     );
   }
@@ -87,7 +87,7 @@ export class GameService {
           .pipe(
             catchError( err => { 
               this.notificationService.error(err.error);
-              alert(err.error);
+              console.log(err.error);
               return "";
             })
           );

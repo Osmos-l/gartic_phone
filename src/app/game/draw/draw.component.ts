@@ -53,7 +53,7 @@ export class DrawComponent implements OnInit {
   ngAfterViewInit(): void {
     const canvasHTML = this.canvasElement.nativeElement;
     this.canvas = this.initCanvas(canvasHTML);
-    console.log(this.canvas);
+    // console.log(this.canvas);
   }
 
   pointerDown(): void {

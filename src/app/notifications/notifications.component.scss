@@ -3,17 +3,20 @@
     top: 0;
     left: 0;
     height: 100vh;
-    width: 25%;
+    max-width: 50%;
     overflow: hidden;
     padding: 10px;
     box-sizing: border-box;
 }
 
 .notification {
+    width: fit-content;
     padding: 20px;
     color: white;
     margin-bottom: 15px;
     border-radius: 5px;
+
+    // TODO: Make animation in & out
 }
 
 .notification-error {

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Pictures } from 'src/models/pictures';
 import { Player } from 'src/models/player';
+import { NotificationService } from 'src/services/notification.service';
 import { GameService } from '../../services/game.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class HomeComponent {
   form: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-              private gameService: GameService) {
+              private gameService: GameService,
+              private notificationService: NotificationService) {
     this.form = this.buildForm();
   }
 
@@ -33,7 +35,7 @@ export class HomeComponent {
     const { username, gameId } = this.form.value;
     
     if (!username || !gameId) {
-      alert("Un nom d'utilisateur et l'identifiant d'une partie est requis pour la rejoindre.")
+      this.notificationService.error("Un nom d'utilisateur et l'identifiant d'une partie sont requis pour la rejoindre.");
       return;
     }
 
@@ -50,7 +52,7 @@ export class HomeComponent {
     const username = this.form.value.username;
 
     if (!username) {
-      alert("Un nom est requis pour créer une partie.")
+      this.notificationService.error("Un nom est requis pour créer une partie.");
       return; 
     }
 

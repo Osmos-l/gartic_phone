@@ -27,10 +27,10 @@ export class SocketService {
   }
 
   sendWriteMoment(gameId: string): void {
-    this.socket.emit('write', gameId);
+    this.socket.emit('writeMoment', gameId);
   }
 
   sendDrawMoment(gameId: string): void {
-    this.socket.emit('draw', gameId);
+    this.socket.emit('drawMoment', gameId);
   }
 }

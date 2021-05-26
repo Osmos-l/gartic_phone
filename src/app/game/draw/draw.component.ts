@@ -29,18 +29,24 @@ export class DrawComponent implements OnInit {
   
   @Input() 
   set colorStyle(newColor: string) {
-    this.canvas.setColor(newColor);
+    if (this.canvas) {
+      this.canvas.setColor(newColor);
+    }
   }
 
   @Input() 
   set updateThickness(thickness : number) {
-    this.canvas.updateLineThickness(thickness);
+    if (this.canvas) {
+      this.canvas.updateLineThickness(thickness);
+    }
   }
 
   @Input() 
   set resetCanvas(resetArea : boolean) {
-    this.canvas.clearContent();
-    this.resetOk.emit();
+    if (this.canvas) {
+      this.canvas.clearContent();
+      this.resetOk.emit();
+    }
   }
    
   timer: number = 0;

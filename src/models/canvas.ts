@@ -88,8 +88,7 @@ export class Canvas {
         
         if (this.isDrawing) {
             this.orderly(this.xNew, this.yNew, this.xOld, this.yOld);
-        }
-        
+        }      
     }
 
     clickOn(): void {

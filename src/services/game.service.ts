@@ -84,12 +84,20 @@ export class GameService {
 
   sendSentence(sentence: string, gameId: string, player: Player): Observable<string> {
     return this.httpClient.post<string>(`${environment.serverUrl}/games/${gameId}/sentence`, { sentence, player })
-          .pipe(
-            catchError( err => { 
+          .pipe(catchError(err => { 
               this.notificationService.error(err.error);
               console.log(err.error);
               return "";
             })
           );
+  }
+
+  sendDrawing(dataDraw: any, gameId: string, player: Player) {
+    this.httpClient.post<any>(`${environment.serverUrl}/games/${gameId}/drawing`, { dataDraw, player })
+            .subscribe(data => {
+              console.log(data);
+            }, err => {
+              this.notificationService.error(err.error.Error);
+            });
   }
 }

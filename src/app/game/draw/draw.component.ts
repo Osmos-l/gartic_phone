@@ -1,6 +1,10 @@
 import { Component, Input,Output, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Canvas } from '../../../models/canvas';
 import { EventEmitter } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { Player } from 'src/models/player';
+import { GameService } from 'src/services/game.service';
+import { Game } from 'src/models/game';
 
 @Component({
   selector: 'app-draw',
@@ -11,6 +15,12 @@ export class DrawComponent implements OnInit {
   
   @Output()
   resetOk : EventEmitter<any> = new EventEmitter();
+
+  @Input()
+  localPlayer: Player;
+
+  @Input()
+  game: Game;
 
   @ViewChild('drawArea') 
   public canvasElement : ElementRef;
@@ -35,7 +45,7 @@ export class DrawComponent implements OnInit {
    
   timer: number = 0;
 
-  constructor() { }
+  constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
     this.startTimer();
@@ -43,7 +53,12 @@ export class DrawComponent implements OnInit {
 
   startTimer() {
     setTimeout(() => {
-    }, 20000)
+      const canvasHtml = this.canvasElement.nativeElement;
+      const drawData = canvasHtml.getContext("2d")
+                                .getImageData(0, 0, canvasHtml.height, canvasHtml.width)
+                                .data;
+      this.gameService.sendDrawing(drawData, this.game.id, this.localPlayer);
+    }, environment.time * environment.timerMsToSec)
   }
 
   initCanvas(canvas: HTMLCanvasElement): Canvas { 
@@ -53,7 +68,6 @@ export class DrawComponent implements OnInit {
   ngAfterViewInit(): void {
     const canvasHTML = this.canvasElement.nativeElement;
     this.canvas = this.initCanvas(canvasHTML);
-    // console.log(this.canvas);
   }
 
   pointerDown(): void {

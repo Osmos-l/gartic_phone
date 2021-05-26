@@ -16,6 +16,12 @@ docker build -t ui-gartic .
 docker run --rm -d -p 8080:80 ui-gartic
 ```
 
+- Stop
+
+```sh
+docker stop <container-id>
+```
+
 ## Angular
 
 - Run   

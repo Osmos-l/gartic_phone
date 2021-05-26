@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Game } from 'src/models/game';
 import { Player } from 'src/models/player';
 import { GameService } from 'src/services/game.service';
+import { NotificationService } from 'src/services/notification.service';
 import { SocketService } from 'src/services/socket.service';
 
 @Component({
@@ -24,7 +25,8 @@ export class WriteComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private gameService: GameService,
-              private socketService: SocketService) {}
+              private socketService: SocketService,
+              private notificationService: NotificationService) {}
 
   ngOnInit(): void {
     this.form = this.buildForm();
@@ -38,6 +40,17 @@ export class WriteComponent implements OnInit {
   }
 
   sendSentence(): void {
+    if (this.isSended) {
+      return;
+    }
+
+    const sentence = this.form.value.sentence;
+
+    if (!sentence) {
+      this.notificationService.error("Vous devez rentrer une phrase");
+      return;
+    }
+
     this.gameService.sendSentence(this.form.value.sentence, this.game.id, this.localPlayer)
     .subscribe(
       sentence => this.isSended = true

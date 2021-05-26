@@ -1,24 +1,23 @@
 <div class='party-container'>
     <div class='party-nav'>
         <div class='party-nav-users'>
+            <!-- TODO: Add crown -->
             <app-party-player *ngFor="let player of (game.players)" [player]="player"></app-party-player>
         </div>
         <div class='party-nav-actions'>
+            <!-- TODO: Leave game -->
             <button class='btn-border-red'>Quitter</button>
         </div>
     </div>
     <div class='party-game'>
         <div class='party-game-container'>
             <div *ngIf="game.status == gameStatus.WRITING_SENTENCES;">
-                <!-- Writing component with text input -->
                 <app-write [game]="game" [localPlayer]="localPlayer"></app-write>
             </div>
             <div *ngIf="game.status == gameStatus.DRAWING;">
-                <!-- Draw component with canvas-->
                 <app-canvas [game]="game" [localPlayer]="localPlayer"></app-canvas>
             </div>
             <div *ngIf="game.status == gameStatus.GUESSING;">
-                <!-- Guess component with canvas & text input -->
                 <app-guess></app-guess>
             </div>
         </div>

@@ -36,4 +36,8 @@ export class CanvasButtonsComponent implements OnInit {
     this.onClick.emit(arg);
   }
 
+  onColorPickerChange(event: any): void {
+    this.onClick.emit(event.target.value);
+  }
+
 }

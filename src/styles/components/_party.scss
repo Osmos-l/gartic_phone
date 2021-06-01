@@ -6,17 +6,19 @@
 
 .party-container .party-nav {
     height: 100%;
-    width: 17%;
+    width: 10%;
     background-color: #282A2A;
     box-shadow: 0 10px 6px -3px #323434;
     padding: 1.5em;
     box-sizing: border-box;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    transition: width 0.5s;
+
 }
 
 .party-container .party-nav .party-nav-users {
-    height: 85%;
+    height: 80%;
     width: 100%;
     overflow-y: scroll;
 }

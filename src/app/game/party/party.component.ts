@@ -18,9 +18,15 @@ export class PartyComponent implements OnInit {
 
   gameStatus = GameStatus;
 
+  partyNavExpanded: Boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  togglePartyNav(): void {
+    this.partyNavExpanded = !this.partyNavExpanded;
   }
 
 }

@@ -1,18 +1,45 @@
 .party-container .party-nav .party-nav-users .party-nav-user {
-    display: flex;
-    justify-content: flex-start;
     height: 10%;
     margin-bottom: 1.5em;
-}
-
-.party-container .party-nav .party-nav-users .party-nav-user img {
-    width: 30%;
-}
-
-.party-container .party-nav .party-nav-users .party-nav-user span {
     display: flex;
-    align-items: center;
-    color: white;
-    padding-left: 0.75em;
-    font-weight: bolder;
+    justify-content: flex-start;
+
+
+    transition: all 0.5s;
+
+    img, span {
+        transition: all 0.5s;
+    }
+
+    span {
+        display: flex;
+        align-items: center;
+        color: white;
+        padding-left: 0.75em;
+        font-weight: bolder;
+    }
+}
+
+.party-container .party-nav .party-nav-users .party-nav-user {
+
+    img {
+        width: 75%;
+        margin: 0 12.5%;
+    }
+
+    span {
+        opacity: 0;
+    }
+}
+
+.party-container .party-nav.expanded .party-nav-users .party-nav-user {
+    
+    img {
+        width: 30%;
+        margin: 0 0;
+    }
+
+    span {
+        opacity: 1;
+    }
 }

@@ -7,4 +7,6 @@ export interface Player {
     picture: Pictures;
 
     sentence: string;
+
+    toGuess: string;
 }

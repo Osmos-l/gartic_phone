@@ -20,7 +20,7 @@
                 <app-canvas [game]="game" [localPlayer]="localPlayer"></app-canvas>
             </div>
             <div *ngIf="game.status == gameStatus.GUESSING;">
-                <app-guess></app-guess>
+                <app-guess [game]="game" [localPlayer]="localPlayer"></app-guess>
             </div>
         </div>
     </div>

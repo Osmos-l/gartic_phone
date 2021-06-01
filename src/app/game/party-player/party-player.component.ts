@@ -13,7 +13,8 @@ export class PartyPlayerComponent implements OnInit {
   player: Player = {
     "username": null,
     "picture": Pictures.MALE,
-    "sentence": ""
+    "sentence": "",
+    "toGuess": ""
   };
 
   constructor() { }

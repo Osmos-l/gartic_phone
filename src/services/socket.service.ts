@@ -33,4 +33,8 @@ export class SocketService {
   sendDrawMoment(gameId: string): void {
     this.socket.emit('drawMoment', gameId);
   }
+
+  sendWaitMoment(gameId: string): void {
+    this.socket.emit('waitMomenet', gameId);
+  }
 }

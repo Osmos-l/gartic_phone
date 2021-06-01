@@ -60,10 +60,8 @@ export class DrawComponent implements OnInit {
   startTimer() {
     setTimeout(() => {
       const canvasHtml = this.canvasElement.nativeElement;
-      const drawData = canvasHtml.getContext("2d")
-                                .getImageData(0, 0, canvasHtml.height, canvasHtml.width)
-                                .data;
-      this.gameService.sendDrawing(drawData, this.game.id, this.localPlayer);
+      const dataCanva = canvasHtml.toDataURL();
+      this.gameService.sendDrawing(dataCanva, this.game.id, this.localPlayer);
     }, environment.time * environment.timerMsToSec)
   }
 

@@ -43,6 +43,7 @@ export class HomeComponent {
       "picture": Pictures.MALE,
       username,
       "sentence": "",
+      "toGuess": ""
     };
 
     this.gameService.join(gameId, player);
@@ -60,6 +61,7 @@ export class HomeComponent {
       "picture": Pictures.MALE,
       username,
       "sentence": "",
+      "toGuess": ""
     };
 
     this.gameService.create(creator);

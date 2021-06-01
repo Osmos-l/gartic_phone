@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverUrl: 'http://localhost:8080',
+  serverUrl: 'http://localhost:8100',
   time: 20,
   timerMsToSec: 1000
 };

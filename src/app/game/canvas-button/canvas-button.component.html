@@ -3,7 +3,7 @@
          [style]="'background-color: ' + color" >
     </div>
     <div *ngIf="thickness !== -1" class="palette-thickness"
-    [style]="'width: ' + thickness + 'px;height: ' + thickness + 'px;'">
+    [style]="'width: ' + thickness * 2 + 'px;height: ' + thickness * 2 + 'px;'">
     </div>
     <p *ngIf="content !== ''" >
         {{ content }}

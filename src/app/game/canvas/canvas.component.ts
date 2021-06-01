@@ -33,7 +33,6 @@ export class CanvasComponent implements OnInit {
     } else if (typeof(arg) === "number") {
       this.thickness = arg;
     } else {
-      // TODO: Reset canvas
       this.resetDrawArea = true;
     }
   }

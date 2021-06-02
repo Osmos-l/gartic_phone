@@ -9,7 +9,7 @@ import { EventEmitter } from '@angular/core';
 export class CanvasButtonComponent implements OnInit {
   
   @Output()
-    onClick : EventEmitter<string | number | boolean> = new EventEmitter();
+    onClick : EventEmitter<string | number> = new EventEmitter();
 
   @Input()
   color: string = '';

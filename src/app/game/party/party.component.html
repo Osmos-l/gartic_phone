@@ -3,7 +3,17 @@
         [ngClass]="{'expanded': partyNavExpanded}">
         <button class='btn-border-red developp' (click)="togglePartyNav()">{{partyNavExpanded ? '-' : '+'}}</button>
         <div class='party-nav-users'>
+<<<<<<< HEAD
+            <div class="crown">
+                <div class="point"></div>
+                <div class="point"></div>
+                <div class="point"></div>
+                <div class="point"></div>
+                <div class="point"></div>
+            </div>
+=======
             TODO: Add crown 
+>>>>>>> d29f0ab7f71dea6ae56d02071ad6bfd2cbaeaa8d
             <app-party-player *ngFor="let player of (game.players)" [player]="player"></app-party-player>
         </div>
         <div class='party-nav-actions'>

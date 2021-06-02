@@ -3,8 +3,12 @@
     <app-timer></app-timer>
 </div>
 <div class="content">
-    <app-canvas-buttons
-    (onClick)="onClick($event)"></app-canvas-buttons>
+    <div class="colors-btn">
+        <app-canvas-button  *ngFor="let color of (colors)" 
+            [color]="color"
+            (onClick)="onClick($event)"></app-canvas-button>
+        <input type="color" class="color-picker" (change)="onColorPickerChange($event)" >
+    </div>
     <app-draw
             [game]="game" 
             [localPlayer]="localPlayer"
@@ -12,5 +16,13 @@
             [updateThickness] = 'thickness' 
             [resetCanvas]='resetDrawArea' 
             (resetOk) = 'resetOk()'></app-draw>
+    <div class="actions-btn">
+        <app-canvas-button  *ngFor="let thickness of (thicknesses)" 
+            [thickness]="thickness"
+            (onClick)="onClick($event)"></app-canvas-button>
+        <app-canvas-button  *ngFor="let action of (actions)" 
+            [content]="action"
+            (onClick)="onClick($event)"></app-canvas-button>
+    </div>
 </div>
 

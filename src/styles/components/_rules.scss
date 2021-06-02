@@ -1,3 +1,7 @@
+div {
+    color: white;    
+}
+
 .rules {
     position: absolute;
     top: 2.5%;
@@ -9,17 +13,23 @@
     text-decoration: none;
     transition: transform 0.3s;
     cursor: pointer;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
 }
 
-.rules:hover {
-    transform: scale(1.1);
-}
+div.explanations-hide {
+    right: -25vw !important;
+    
+    opacity: 0 !important;
 
-.rules span, div {
-    color: white;    
 }
-
 div.explanations {
+    opacity: 0.95;
+    width: 25%;
+
     position: absolute;
     top: 8%;
     right: 8%;
@@ -27,7 +37,6 @@ div.explanations {
     background-color: #282A2A;
     text-align: justify;
     padding: 20px;
-    width: 25%;
     box-shadow: 0 10px 6px -3px #323434;
 
     & h1 {
@@ -45,4 +54,6 @@ div.explanations {
         font-weight: bold;
         text-transform: uppercase;
     }
+
+    transition: all 0.5s;
 }

@@ -2,7 +2,9 @@
 <button (click) = "show = !show" class='rules' > <span>{{show ? 'Cacher' : '?'}} </span>
     <!-- changes show's value (boolean) on click -->
 </button>
-<div *ngIf = "show" class='explanations'>
+<div 
+    class='explanations'
+    [ngClass]="{'explanations-hide': !show}">
     <h1>Règles du jeu</h1>
     <hr />
     <br />

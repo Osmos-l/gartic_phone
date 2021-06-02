@@ -1,11 +1,17 @@
 <div class='write'>
     <app-timer></app-timer>
-    <h1>Saisir une phrase</h1>
-    <form [formGroup]="form">
-        <input type="text" placeholder="votre phrase" formControlName="sentence" required />
-        <p>TODO: Should be a timer instead of button</p>
-        <button  *ngIf="!isSended"
-                class="menu-content-action btn-border-red" 
-                (click)="sendSentence()">Envoyer</button>
-    </form>
+    <div *ngIf="!isSended; else waiting">
+        <h1>Saisir une phrase</h1>
+        <form [formGroup]="form">
+            <input type="text" placeholder="votre phrase" formControlName="sentence" required />
+            <p>TODO: Should be a timer instead of button</p>
+            <button
+                    class="menu-content-action btn-border-red" 
+                    (click)="sendSentence()">Envoyer</button>
+        </form>
+    </div>
+    <ng-template #waiting>
+        <h1>En attente des autres joueurs</h1>
+    </ng-template>
+
 </div>

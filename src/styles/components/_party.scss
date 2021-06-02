@@ -35,8 +35,10 @@
 }
 
 .party-game {
-    width: 83%;
+    min-width: 1200px;
+    width: 1200px;
     display: flex;
+    margin: 0 auto;
     align-items: center;
     justify-content: center;
 }

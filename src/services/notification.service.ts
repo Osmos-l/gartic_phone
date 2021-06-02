@@ -16,30 +16,39 @@ export class NotificationService {
     return this._notifications.asObservable();
   }
 
-  error(content: string) {
-    const notification: Notification = {
+  createNotification(content: string, type: NotificationType): Notification {
+    return {
       "id": this._idx++,
       content,
-      "type": NotificationType.ERROR
+      type
     };
-    this._notifications.next(notification);
+  }
+
+
+  error(content: string) {
+    if (!content) {
+      return;
+    }
+
+    this._notifications.next(
+      this.createNotification(content, NotificationType.ERROR));
   }
 
   success(content: string) {
-    const notification: Notification = {
-      "id": this._idx++,
-      content,
-      "type": NotificationType.SUCCESS
-    };
-    this._notifications.next(notification);
+    if (!content) {
+      return;
+    }
+
+    this._notifications.next(
+      this.createNotification(content, NotificationType.SUCCESS));
   }
 
   info(content: string) {
-    const notification: Notification = {
-      "id": this._idx++,
-      content,
-      "type": NotificationType.INFO
-    };
-    this._notifications.next(notification);
+    if (!content) {
+      return;
+    }
+
+    this._notifications.next(
+      this.createNotification(content, NotificationType.INFO));
   }
 }

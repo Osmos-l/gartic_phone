@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Pictures } from 'src/models/pictures';
 import { Player } from 'src/models/player';
 import { NotificationService } from 'src/services/notification.service';
+import { SocketService } from 'src/services/socket.service';
 import { GameService } from '../../services/game.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class HomeComponent {
 
   constructor(private formBuilder: FormBuilder,
               private gameService: GameService,
-              private notificationService: NotificationService) {
+              private notificationService: NotificationService,
+              private socketService: SocketService) {
     this.form = this.buildForm();
   }
 
@@ -47,6 +49,14 @@ export class HomeComponent {
     };
 
     this.gameService.join(gameId, player);
+  }
+
+  retrieveGame(): void {
+    const id = this.gameService.getGameId();
+
+    if (id) {
+      this.socketService.connect();
+    }
   }
 
   createGame(): void {

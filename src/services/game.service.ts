@@ -36,12 +36,21 @@ export class GameService {
     localStorage.setItem('player', JSON.stringify(player));
   }
 
+  getGameId(): string | null {
+    return localStorage.getItem('gameId');
+  }
+
+  setGameId(id: string): void {
+    localStorage.setItem('gameId', id);
+  }
+
   create(creator: Player): void {
     this.httpClient.post<Game>(`${environment.serverUrl}/games`, creator)
       .subscribe(game => {
         this.socketService.sendCreate(game.id);
         this.setGame(game);
         this.setLocalPlayer(game.creator);
+        this.setGameId(game.id);
         this.router.navigate(["lobby/"]);
       }, err => {
         this.notificationService.error(err.error.Error);
@@ -56,6 +65,7 @@ export class GameService {
         this.socketService.sendJoin(id);
         this.setLocalPlayer(player);
         this.setGame(game);
+        this.setGameId(game.id);
         this.router.navigate(["lobby/"]);
       }, err => { 
         this.notificationService.error(err.error.Error);

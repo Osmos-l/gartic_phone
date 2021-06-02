@@ -30,7 +30,7 @@ export class WriteComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.buildForm();
-    this.socketService.sendWriteMoment(this.game.id);
+    this.socketService.sendWriteMoment(this.game.id, this.localPlayer);
   }
 
   private buildForm(): FormGroup {

@@ -1,16 +1,16 @@
 <div class='party-container'>
-    <div class='party-nav'
+    <!-- <div class='party-nav'
         [ngClass]="{'expanded': partyNavExpanded}">
         <button class='btn-border-red developp' (click)="togglePartyNav()">{{partyNavExpanded ? '-' : '+'}}</button>
         <div class='party-nav-users'>
-            <!-- TODO: Add crown -->
+            TODO: Add crown 
             <app-party-player *ngFor="let player of (game.players)" [player]="player"></app-party-player>
         </div>
         <div class='party-nav-actions'>
-            <!-- TODO: Leave game -->
+            < TODO: Leave game 
             <button class='btn-border-red'>Quitter</button>
         </div>
-    </div>
+    </div>-->
     <div class='party-game'>
         <div class='party-game-container'>
             <div *ngIf="game.status == gameStatus.WRITING_SENTENCES;">

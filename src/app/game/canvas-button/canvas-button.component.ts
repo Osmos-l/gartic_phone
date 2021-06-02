@@ -27,16 +27,16 @@ export class CanvasButtonComponent implements OnInit {
 
    /**
     * Emit the content of the button to his parent :
-    * string, number or false in default case
+    * string, number or in default case
     */
-  emitClick(event?: any): void {
-    let arg: string | number | boolean = false;
+  emitClick(): void {
+    let arg: string | number;
     if (this.color !== '') {
       arg = this.color;
     } else if (this.thickness !== -1) {
       arg = this.thickness;
-    } else if (event && event.target && event.target.value) { // COLOR PICKER
-      arg = event.target.value;
+    } else { 
+      arg = this.content
     }
 
     this.onClick.emit(arg);

@@ -14,7 +14,6 @@ import { CanvasButtonComponent } from './canvas-button/canvas-button.component';
 import { PartyComponent } from './party/party.component';
 import { PartyPlayerComponent } from './party-player/party-player.component';
 import { WriteComponent } from './write/write.component';
-import { CanvasButtonsComponent } from './canvas-buttons/canvas-buttons.component';
 import { TimerComponent } from './timer/timer.component';
 
 @NgModule({
@@ -29,7 +28,6 @@ import { TimerComponent } from './timer/timer.component';
     PartyComponent,
     PartyPlayerComponent,
     WriteComponent,
-    CanvasButtonsComponent,
     TimerComponent
   ],
   imports: [

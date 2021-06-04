@@ -53,6 +53,7 @@ export class CanvasComponent implements OnInit {
   color: string;
   thickness: number;
   resetDrawArea: boolean = false;
+  onFill: boolean = false;
 
   constructor(private socketService: SocketService) { }
 
@@ -68,11 +69,11 @@ export class CanvasComponent implements OnInit {
   onClick(arg: string | number): void {
     if (typeof(arg) === "string" ) {
       if (arg === 'fill') {
-        // TODO: canvas fill
+        this.onFill = true;
       } else if (arg === 'reset') {
         this.resetDrawArea = true;
       } else if (arg === 'pencil') {
-        // TODO: canvas normal draw mode
+        this.onFill = false;
       } else {
         this.color = arg;
       }

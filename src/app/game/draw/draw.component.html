@@ -2,6 +2,6 @@
         id="drawArea"  
         width="700" 
         height="500" 
-        (pointerdown)="pointerDown()" 
+        (pointerdown)="pointerDown($event)" 
         (pointerup)="pointerUp()" 
         (pointermove)="pointerMove($event)" ></canvas>

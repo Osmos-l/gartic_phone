@@ -14,7 +14,8 @@
             [localPlayer]="localPlayer"
             [colorStyle] = 'color' 
             [updateThickness] = 'thickness' 
-            [resetCanvas]='resetDrawArea' 
+            [resetCanvas]='resetDrawArea'
+            [onFill]='onFill' 
             (resetOk) = 'resetOk()'></app-draw>
     <div class="actions-btn">
         <app-canvas-button  *ngFor="let thickness of (thicknesses)" 

@@ -48,6 +48,13 @@ export class DrawComponent implements OnInit {
     }
     this.resetOk.emit();
   }
+
+  @Input() 
+  set onFill(fill: boolean) {
+    if (this.canvas) {
+      this.canvas.setOnFill(fill);
+    }
+  }
    
   timer: number = 0;
 
@@ -74,8 +81,8 @@ export class DrawComponent implements OnInit {
     this.canvas = this.initCanvas(canvasHTML);
   }
 
-  pointerDown(): void {
-    this.canvas.clickOn();
+  pointerDown(event?: PointerEvent): void {
+    this.canvas.clickOn(event);
   }
 
   pointerUp(): void {

@@ -8,11 +8,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { NotificationsComponent } from './notifications/notifications.component';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+import { NotificationsComponent } from './notifications/notifications.component';
 import { environment } from 'src/environments/environment';
 
-const config: SocketIoConfig = { url: environment.serverUrl, options: { autoConnect: false } };
+const config: SocketIoConfig = { url: environment.serverUrl, options: {} };
 
 @NgModule({
   declarations: [

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Game, GameStatus } from 'src/models/game';
 import { Player } from 'src/models/player';
@@ -10,7 +10,7 @@ import { SocketService } from 'src/services/socket.service';
   templateUrl: './default.component.html',
   styleUrls: ['./default.component.scss']
 })
-export class DefaultComponent implements OnInit, OnDestroy {
+export class DefaultComponent implements OnInit {
 
   game: Game;
   localPlayer: Player;
@@ -23,11 +23,6 @@ export class DefaultComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.initContents();
     this.connectToSocket();
-  }
-
-  ngOnDestroy() {
-    alert('coucou')
-    this.socketService.disconnectFromGame(this.game.id, this.localPlayer.username);
   }
 
   initContents(): void {

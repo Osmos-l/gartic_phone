@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Socket, SocketIoConfig } from 'ngx-socket-io';
-import { WrappedSocket } from 'ngx-socket-io/src/socket-io.service';
+import { Socket } from 'ngx-socket-io';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { Game } from 'src/models/game';
 import { Player } from 'src/models/player';
 
@@ -11,29 +9,13 @@ import { Player } from 'src/models/player';
 })
 export class SocketService {
 
-  constructor(private socket: Socket) {
-  }
+  constructor(private socket: Socket) {}
 
-  connect(): void {
-    this.socket.connect();
-  }
-
-  disconnect(): void {
-    this.socket.disconnect();
-  }
-
-  disconnectFromGame(gameId: string, playerName: string): void {
-    this.socket.emit('leaveGame', { gameId, playerName });
-    // this.disconnect();
-  }
-
-  sendCreate(gameId: string): void {
-    this.connect();
+  sendCreate(gameId: string) : void {
     this.socket.emit('create', gameId);
   }
 
   sendJoin(gameId: string): void {
-    this.connect();
     this.socket.emit('join', gameId);
   }
 

@@ -5,7 +5,8 @@ export enum GameStatus {
     WRITING_SENTENCES = 2,
     DRAWING = 3,
     GUESSING = 4,
-    END = 5
+    END = 5,
+    WAITING_SERVER = 6
 }
 
 export interface Game {

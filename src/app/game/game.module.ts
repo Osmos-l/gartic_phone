@@ -15,6 +15,7 @@ import { PartyComponent } from './party/party.component';
 import { PartyPlayerComponent } from './party-player/party-player.component';
 import { WriteComponent } from './write/write.component';
 import { TimerComponent } from './timer/timer.component';
+import { WaitingComponent } from './waiting/waiting.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TimerComponent } from './timer/timer.component';
     PartyComponent,
     PartyPlayerComponent,
     WriteComponent,
-    TimerComponent
+    TimerComponent,
+    WaitingComponent
   ],
   imports: [
     GameRoutingModule,

@@ -8,5 +8,8 @@
     <app-party [game]="game"
                [localPlayer]="localPlayer"></app-party>
 </div>
+<div *ngIf="game.status == gameStatus.WAITING_SERVER;">
+    <app-waiting></app-waiting>
+</div>
 <div *ngIf="game.status == gameStatus.END;">
 </div>

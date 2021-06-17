@@ -34,7 +34,7 @@ export class DefaultComponent implements OnInit {
       this.game = game;
       this.localPlayer = localPlayer;
       // ONLY FOR DEV (force game.status)
-      // this.game.status = 3;
+      this.game.status = 6;
     } else {
       this.router.navigate(['']);
     }
